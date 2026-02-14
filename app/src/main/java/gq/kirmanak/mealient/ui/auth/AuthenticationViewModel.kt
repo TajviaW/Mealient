@@ -146,9 +146,9 @@ internal class AuthenticationViewModel @Inject constructor(
             }
 
             result.fold(
-                onSuccess = { authRequest ->
+                onSuccess = { oidcAuthRequest ->
                     logger.v { "Starting OIDC flow with authorization URL" }
-                    val intent = oidcAuthService.createAuthorizationIntent(authRequest.authorizationUrl)
+                    val intent = oidcAuthService.createAuthorizationIntent(oidcAuthRequest.authRequest)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     application.startActivity(intent)
 

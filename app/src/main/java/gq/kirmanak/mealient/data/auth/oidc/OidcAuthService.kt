@@ -4,7 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import dagger.hilt.android.qualifiers.ApplicationContext
+import net.openid.appauth.AppAuthConfiguration
+import net.openid.appauth.AuthorizationRequest
 import net.openid.appauth.AuthorizationService
+import net.openid.appauth.AuthorizationServiceConfiguration
+import net.openid.appauth.ResponseTypeValues
 import net.openid.appauth.browser.BrowserAllowList
 import net.openid.appauth.browser.VersionedBrowserMatcher
 import javax.inject.Inject
@@ -22,19 +26,20 @@ class OidcAuthService @Inject constructor(
             VersionedBrowserMatcher.CHROME_CUSTOM_TAB,
             VersionedBrowserMatcher.SAMSUNG_CUSTOM_TAB
         )
-        AuthorizationService(context, browserMatcher)
+        val appAuthConfig = AppAuthConfiguration.Builder()
+            .setBrowserMatcher(browserMatcher)
+            .build()
+        AuthorizationService(context, appAuthConfig)
     }
 
     /**
      * Creates an intent that launches Chrome Custom Tabs for OIDC authorization.
      *
-     * @param authorizationUrl The complete authorization URL
+     * @param authRequest The authorization request to launch
      * @return Intent that can be launched to start the authorization flow
      */
-    fun createAuthorizationIntent(authorizationUrl: String): Intent {
-        return authService.getAuthorizationRequestIntent(
-            Uri.parse(authorizationUrl)
-        )
+    fun createAuthorizationIntent(authRequest: AuthorizationRequest): Intent {
+        return authService.getAuthorizationRequestIntent(authRequest)
     }
 
     /**

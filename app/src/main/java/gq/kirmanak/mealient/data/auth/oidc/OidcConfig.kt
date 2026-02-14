@@ -48,11 +48,13 @@ sealed class OidcAuthState {
  * @property authorizationUrl The complete authorization URL to open in Chrome Custom Tabs
  * @property state The state parameter for CSRF protection
  * @property codeVerifier The PKCE code verifier (stored for later token exchange)
+ * @property authRequest The AppAuth AuthorizationRequest object (for launching intent)
  */
 data class OidcAuthorizationRequest(
     val authorizationUrl: String,
     val state: String,
     val codeVerifier: String,
+    val authRequest: net.openid.appauth.AuthorizationRequest,
 )
 
 /**

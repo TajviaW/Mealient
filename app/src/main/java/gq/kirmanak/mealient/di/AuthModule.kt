@@ -50,13 +50,13 @@ interface AuthModule {
     fun bindCredentialsLogRedactor(impl: CredentialsLogRedactor): LogRedactor
 
     @Binds
-    fun bindOidcAuthRepo(impl: OidcAuthRepoImpl): OidcAuthRepo
+    internal fun bindOidcAuthRepo(impl: OidcAuthRepoImpl): OidcAuthRepo
 
     @Binds
-    fun bindOidcTokenExchange(impl: OidcTokenExchangeImpl): OidcTokenExchange
+    internal fun bindOidcTokenExchange(impl: OidcTokenExchangeImpl): OidcTokenExchange
 
     @Binds
-    fun bindOidcTokenRefresh(impl: OidcTokenRefreshImpl): OidcTokenRefresh
+    internal fun bindOidcTokenRefresh(impl: OidcTokenRefreshImpl): OidcTokenRefresh
 
     companion object {
         @Provides

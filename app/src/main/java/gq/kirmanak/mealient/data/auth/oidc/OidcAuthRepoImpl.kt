@@ -91,13 +91,15 @@ internal class OidcAuthRepoImpl @Inject constructor(
             currentAuthorizationRequest = authRequest
 
             val authorizationUrl = authRequest.toUri().toString()
+            val state = authRequest.state ?: throw IllegalStateException("State parameter is null")
             logger.v { "Authorization URL generated" }
 
             Result.success(
                 OidcAuthorizationRequest(
                     authorizationUrl = authorizationUrl,
-                    state = authRequest.state,
-                    codeVerifier = codeVerifier
+                    state = state,
+                    codeVerifier = codeVerifier,
+                    authRequest = authRequest
                 )
             )
         } catch (e: Exception) {
