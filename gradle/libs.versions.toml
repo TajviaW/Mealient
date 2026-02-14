@@ -81,6 +81,8 @@ ktor = "3.0.1"
 coil = "2.7.0"
 # https://github.com/Kotlin/kotlinx-kover/releases
 kover = "0.8.3"
+# https://github.com/detekt/detekt/releases
+detekt = "1.23.7"
 
 [libraries]
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
@@ -190,3 +192,4 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "kspPlugin" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

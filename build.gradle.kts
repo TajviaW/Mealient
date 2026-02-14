@@ -18,6 +18,7 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.kover) apply false
     alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.detekt)
 }
 
 sonarqube {
@@ -42,4 +43,13 @@ subprojects {
 
         }
     }
+
+    apply(plugin = "io.gitlab.arturbosch.detekt")
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    allRules = false
+    config.setFrom("${project.rootDir}/config/detekt/detekt.yml")
+    baseline = file("${project.rootDir}/config/detekt/baseline.xml")
 }
