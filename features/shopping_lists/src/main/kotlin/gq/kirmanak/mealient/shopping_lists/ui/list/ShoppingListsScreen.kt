@@ -35,6 +35,7 @@ import gq.kirmanak.mealient.ui.components.BaseScreenWithNavigation
 import gq.kirmanak.mealient.ui.components.LazyColumnWithLoadingState
 import gq.kirmanak.mealient.ui.preview.ColorSchemePreview
 import gq.kirmanak.mealient.ui.util.error
+import gq.kirmanak.mealient.ui.util.rememberHapticFeedback
 
 @Destination
 @Composable
@@ -44,6 +45,7 @@ internal fun ShoppingListsScreen(
     shoppingListsViewModel: ShoppingListsViewModel = hiltViewModel(),
 ) {
     val screenState by shoppingListsViewModel.shoppingListsState.collectAsState()
+    val haptic = rememberHapticFeedback()
 
     ShoppingListsScreenDialog(
         dialog = screenState.dialog,
@@ -64,7 +66,10 @@ internal fun ShoppingListsScreen(
             onRefresh = { shoppingListsViewModel.onEvent(ShoppingListsEvent.RefreshRequested) },
             floatingActionButton = {
                 FloatingActionButton(
-                    onClick = { shoppingListsViewModel.onEvent(ShoppingListsEvent.AddShoppingList) }
+                    onClick = {
+                        haptic.lightImpact()
+                        shoppingListsViewModel.onEvent(ShoppingListsEvent.AddShoppingList)
+                    }
                 ) {
                     Icon(
                         imageVector = Icons.Default.Add,
@@ -81,13 +86,16 @@ internal fun ShoppingListsScreen(
                 ShoppingListCard(
                     listName = displayList.name,
                     onClick = {
+                        haptic.lightImpact()
                         val shoppingListId = displayList.id
                         navController.navigate(ShoppingListScreenDestination(shoppingListId))
                     },
                     onDelete = {
+                        haptic.heavyImpact()
                         shoppingListsViewModel.onEvent(ShoppingListsEvent.RemoveList(displayList))
                     },
                     onEdit = {
+                        haptic.mediumImpact()
                         shoppingListsViewModel.onEvent(ShoppingListsEvent.EditList(displayList))
                     }
                 )

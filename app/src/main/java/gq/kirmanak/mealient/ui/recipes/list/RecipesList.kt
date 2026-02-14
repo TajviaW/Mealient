@@ -43,6 +43,7 @@ import gq.kirmanak.mealient.ui.components.LazyPagingColumnPullRefresh
 import gq.kirmanak.mealient.ui.components.OpenDrawerIconButton
 import gq.kirmanak.mealient.ui.destinations.RecipeScreenDestination
 import gq.kirmanak.mealient.ui.preview.ColorSchemePreview
+import gq.kirmanak.mealient.ui.util.rememberHapticFeedback
 
 
 @Destination
@@ -81,6 +82,7 @@ private fun RecipesList(
     var itemToDelete: RecipeListItemState? by remember { mutableStateOf(null) }
     val snackbarHostState = remember { SnackbarHostState() }
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    val haptic = rememberHapticFeedback()
     BaseScreenWithNavigation(
         baseScreenState = baseScreenState,
         drawerState = drawerState,
@@ -106,6 +108,7 @@ private fun RecipesList(
             ConfirmDeleteDialog(
                 onDismissRequest = { itemToDelete = null },
                 onConfirm = {
+                    haptic.heavyImpact()
                     onEvent(RecipeListEvent.DeleteConfirmed(item))
                     itemToDelete = null
                 },
@@ -118,9 +121,18 @@ private fun RecipesList(
                 RecipesListData(
                     modifier = modifier,
                     recipes = recipes,
-                    onDeleteClick = { itemToDelete = it },
-                    onFavoriteClick = { onEvent(RecipeListEvent.FavoriteClick(it)) },
-                    onItemClick = { onEvent(RecipeListEvent.RecipeClick(it)) },
+                    onDeleteClick = {
+                        haptic.heavyImpact()
+                        itemToDelete = it
+                    },
+                    onFavoriteClick = {
+                        haptic.mediumImpact()
+                        onEvent(RecipeListEvent.FavoriteClick(it))
+                    },
+                    onItemClick = {
+                        haptic.lightImpact()
+                        onEvent(RecipeListEvent.RecipeClick(it))
+                    },
                 )
             }
 
