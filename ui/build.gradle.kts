@@ -19,6 +19,10 @@ dependencies {
 
     implementation(libs.android.material.material)
     implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.materialIconsExtended)
+    implementation(libs.androidx.compose.material3.adaptive)
+    implementation(libs.androidx.compose.material3.adaptive.layout)
+    implementation(libs.androidx.compose.material3.adaptive.navigation.suite)
 
     implementation(libs.androidx.paging.compose)
 

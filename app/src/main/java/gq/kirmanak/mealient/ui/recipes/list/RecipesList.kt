@@ -40,10 +40,13 @@ import gq.kirmanak.mealient.ui.components.BaseScreenState
 import gq.kirmanak.mealient.ui.components.BaseScreenWithNavigation
 import gq.kirmanak.mealient.ui.components.CenteredProgressIndicator
 import gq.kirmanak.mealient.ui.components.LazyPagingColumnPullRefresh
+import gq.kirmanak.mealient.ui.components.LazyPagingGridPullRefresh
 import gq.kirmanak.mealient.ui.components.OpenDrawerIconButton
 import gq.kirmanak.mealient.ui.destinations.RecipeScreenDestination
 import gq.kirmanak.mealient.ui.preview.ColorSchemePreview
 import gq.kirmanak.mealient.ui.util.rememberHapticFeedback
+import gq.kirmanak.mealient.ui.util.rememberWindowSize
+import gq.kirmanak.mealient.ui.util.getGridColumns
 
 
 @Destination
@@ -180,28 +183,58 @@ private fun RecipesListData(
     onFavoriteClick: (RecipeListItemState) -> Unit,
     onItemClick: (RecipeListItemState) -> Unit,
 ) {
-    LazyPagingColumnPullRefresh(
-        modifier = modifier
-            .fillMaxSize(),
-        lazyPagingItems = recipes,
-        verticalArrangement = Arrangement.spacedBy(Dimens.Medium),
-        contentPadding = PaddingValues(Dimens.Medium),
-    ) {
-        items(
-            count = recipes.itemCount,
-            key = recipes.itemKey { it.entity.remoteId },
-            contentType = recipes.itemContentType { "recipe" },
+    val windowSize = rememberWindowSize()
+    val columns = windowSize.getGridColumns()
+
+    // Use grid for tablets and larger screens, column for phones
+    if (windowSize.isCompact) {
+        LazyPagingColumnPullRefresh(
+            modifier = modifier.fillMaxSize(),
+            lazyPagingItems = recipes,
+            verticalArrangement = Arrangement.spacedBy(Dimens.Medium),
+            contentPadding = PaddingValues(Dimens.Medium),
         ) {
-            val item: RecipeListItemState? = recipes[it]
-            if (item != null) {
-                RecipeItem(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    recipe = item,
-                    onDeleteClick = { onDeleteClick(item) },
-                    onFavoriteClick = { onFavoriteClick(item) },
-                    onItemClick = { onItemClick(item) },
-                )
+            items(
+                count = recipes.itemCount,
+                key = recipes.itemKey { it.entity.remoteId },
+                contentType = recipes.itemContentType { "recipe" },
+            ) {
+                val item: RecipeListItemState? = recipes[it]
+                if (item != null) {
+                    RecipeItem(
+                        modifier = Modifier.fillMaxWidth(),
+                        recipe = item,
+                        onDeleteClick = { onDeleteClick(item) },
+                        onFavoriteClick = { onFavoriteClick(item) },
+                        onItemClick = { onItemClick(item) },
+                    )
+                }
+            }
+        }
+    } else {
+        LazyPagingGridPullRefresh(
+            modifier = modifier.fillMaxSize(),
+            lazyPagingItems = recipes,
+            columns = columns,
+            verticalArrangement = Arrangement.spacedBy(Dimens.Medium),
+            horizontalArrangement = Arrangement.spacedBy(Dimens.Medium),
+            contentPadding = PaddingValues(Dimens.Medium),
+        ) {
+            items(
+                count = recipes.itemCount,
+                key = recipes.itemKey { it.entity.remoteId },
+                contentType = recipes.itemContentType { "recipe" },
+            ) {
+                val item: RecipeListItemState? = recipes[it]
+                if (item != null) {
+                    RecipeItem(
+                        modifier = Modifier.fillMaxWidth(),
+                        recipe = item,
+                        onDeleteClick = { onDeleteClick(item) },
+                        onFavoriteClick = { onFavoriteClick(item) },
+                        onItemClick = { onItemClick(item) },
+                    )
+                }
             }
         }
     }
