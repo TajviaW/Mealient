@@ -1,0 +1,197 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:AddRecipeViewModel.kt$AddRecipeViewModel$fun onEvent(event: AddRecipeScreenEvent)</ID>
+    <ID>FunctionNaming:AddRecipeScreen.kt$@ColorSchemePreview @Composable private fun AddRecipeScreenPreview()</ID>
+    <ID>FunctionNaming:AddRecipeScreen.kt$@Composable internal fun AddRecipeScreen( baseScreenState: BaseScreenState, state: AddRecipeScreenState, onEvent: (AddRecipeScreenEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:AddRecipeScreen.kt$@Composable private fun AddRecipeActions( state: AddRecipeScreenState, onEvent: (AddRecipeScreenEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:AddRecipeScreen.kt$@Composable private fun AddRecipeInputField( input: String, label: String, isLast: Boolean, onValueChange: (String) -&gt; Unit, onRemoveClick: (() -&gt; Unit)? = null, )</ID>
+    <ID>FunctionNaming:AddRecipeScreen.kt$@Composable private fun AddRecipeScreenContent( state: AddRecipeScreenState, onEvent: (AddRecipeScreenEvent) -&gt; Unit )</ID>
+    <ID>FunctionNaming:AddRecipeScreen.kt$@Composable private fun AddRecipeSwitch( @StringRes name: Int, checked: Boolean, onCheckedChange: (Boolean) -&gt; Unit )</ID>
+    <ID>FunctionNaming:AddRecipeScreen.kt$@Destination @Composable internal fun AddRecipeScreen( baseScreenState: BaseScreenState, viewModel: AddRecipeViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:AuthenticationScreen.kt$@ColorSchemePreview @Composable private fun AuthenticationScreenPreview()</ID>
+    <ID>FunctionNaming:AuthenticationScreen.kt$@Composable internal fun AuthenticationScreen( state: AuthenticationScreenState, modifier: Modifier = Modifier, onEvent: (AuthenticationScreenEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:AuthenticationScreen.kt$@Destination @Composable internal fun AuthenticationScreen( navController: NavController, viewModel: AuthenticationViewModel = hiltViewModel(), )</ID>
+    <ID>FunctionNaming:AuthenticationScreen.kt$@OptIn(ExperimentalComposeUiApi::class) @Composable private fun EmailInput( input: String, onEvent: (AuthenticationScreenEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:BaseURLScreen.kt$@ColorSchemePreview @Composable private fun BaseURLScreenPreview()</ID>
+    <ID>FunctionNaming:BaseURLScreen.kt$@Composable private fun BaseURLScreen( state: BaseURLScreenState, baseScreenState: BaseScreenState, onEvent: (BaseURLScreenEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:BaseURLScreen.kt$@Composable private fun BaseURLScreen( state: BaseURLScreenState, modifier: Modifier = Modifier, onEvent: (BaseURLScreenEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:BaseURLScreen.kt$@Composable private fun UrlInputField( input: String, errorText: String?, onEvent: (BaseURLScreenEvent) -&gt; Unit, isError: Boolean, )</ID>
+    <ID>FunctionNaming:BaseURLScreen.kt$@Destination @Composable internal fun BaseURLScreen( navController: NavController, baseScreenState: BaseScreenState, viewModel: BaseURLViewModel = hiltViewModel(), )</ID>
+    <ID>FunctionNaming:ConfirmDeleteDialog.kt$@Composable internal fun ConfirmDeleteDialog( onDismissRequest: () -&gt; Unit, onConfirm: (RecipeListItemState) -&gt; Unit, item: RecipeListItemState, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:DisclaimerScreen.kt$@ColorSchemePreview @Composable private fun DisclaimerScreenPreview()</ID>
+    <ID>FunctionNaming:DisclaimerScreen.kt$@Composable internal fun DisclaimerScreen( state: DisclaimerScreenState, modifier: Modifier = Modifier, onButtonClick: () -&gt; Unit, )</ID>
+    <ID>FunctionNaming:DisclaimerScreen.kt$@Destination @Composable internal fun DisclaimerScreen( navController: NavController, viewModel: DisclaimerViewModel = hiltViewModel(), )</ID>
+    <ID>FunctionNaming:HeaderSection.kt$@Composable internal fun HeaderSection( imageUrl: String?, title: String?, description: String?, )</ID>
+    <ID>FunctionNaming:IngredientsSection.kt$@Composable internal fun IngredientsSection( ingredients: List&lt;RecipeIngredientEntity&gt;, )</ID>
+    <ID>FunctionNaming:IngredientsSection.kt$@Composable private fun IngredientListItem( item: RecipeIngredientEntity, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:InstructionsSection.kt$@Composable internal fun InstructionsSection( instructions: Map&lt;RecipeInstructionEntity, List&lt;RecipeIngredientEntity&gt;&gt;, )</ID>
+    <ID>FunctionNaming:InstructionsSection.kt$@Composable private fun InstructionListItem( item: RecipeInstructionEntity, index: Int, ingredients: List&lt;RecipeIngredientEntity&gt;, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:InvalidCertificateDialog.kt$@ColorSchemePreview @Composable private fun InvalidCertificateDialogPreview()</ID>
+    <ID>FunctionNaming:InvalidCertificateDialog.kt$@Composable internal fun InvalidCertificateDialog( state: BaseURLScreenState.InvalidCertificateDialogState, onEvent: (BaseURLScreenEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:KeepScreenOn.kt$@Composable fun KeepScreenOn()</ID>
+    <ID>FunctionNaming:MealientApp.kt$@Composable internal fun MealientApp( viewModel: MainActivityViewModel, )</ID>
+    <ID>FunctionNaming:MealientApp.kt$@Composable private fun AppContent( engine: NavHostEngine, controller: NavHostController, startRoute: Route?, onEvent: (AppEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:MealientApp.kt$@Composable private fun ForceNavigationEffect( currentDestination: DestinationSpec&lt;*&gt;?, controller: NavHostController, forcedDestination: ForcedDestination, )</ID>
+    <ID>FunctionNaming:MealientApp.kt$@Composable private fun IntentLaunchEffect( intent: Intent?, onEvent: (AppEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:MealientApp.kt$@Composable private fun MealientApp( state: MealientAppState, onEvent: (AppEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:MealientApp.kt$@Composable private fun MealientDialog( dialogState: DialogState, onEvent: (AppEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:PasswordInput.kt$@Composable private fun PasswordTrailingIcon( isError: Boolean, isPasswordVisible: Boolean, onEvent: (AuthenticationScreenEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:PasswordInput.kt$@OptIn(ExperimentalComposeUiApi::class) @Composable internal fun PasswordInput( input: String, errorText: String?, isPasswordVisible: Boolean, onEvent: (AuthenticationScreenEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:RecipeItem.kt$@ColorSchemePreview @Composable private fun RecipeItemPreview()</ID>
+    <ID>FunctionNaming:RecipeItem.kt$@Composable internal fun RecipeItem( recipe: RecipeListItemState, onDeleteClick: () -&gt; Unit, onFavoriteClick: () -&gt; Unit, onItemClick: () -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:RecipeItem.kt$@Composable private fun RecipeHeader( onDeleteClick: () -&gt; Unit, recipe: RecipeListItemState, onFavoriteClick: () -&gt; Unit )</ID>
+    <ID>FunctionNaming:RecipeItem.kt$@Composable private fun RecipeImage( recipe: RecipeListItemState, )</ID>
+    <ID>FunctionNaming:RecipeScreen.kt$@ColorSchemePreview @Composable private fun RecipeScreenPreview()</ID>
+    <ID>FunctionNaming:RecipeScreen.kt$@Composable private fun RecipeScreen( state: RecipeInfoUiState, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:RecipeScreen.kt$@Destination( navArgsDelegate = RecipeScreenArgs::class, ) @Composable internal fun RecipeScreen( viewModel: RecipeInfoViewModel = hiltViewModel(), )</ID>
+    <ID>FunctionNaming:RecipesList.kt$@ColorSchemePreview @Composable private fun RecipesTopAppBarPreview()</ID>
+    <ID>FunctionNaming:RecipesList.kt$@Composable internal fun RecipesTopAppBar( searchQuery: String, onValueChanged: (String) -&gt; Unit, drawerState: DrawerState, )</ID>
+    <ID>FunctionNaming:RecipesList.kt$@Composable private fun RecipesList( state: RecipeListState, baseScreenState: BaseScreenState, onEvent: (RecipeListEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:RecipesList.kt$@Composable private fun RecipesListData( modifier: Modifier, recipes: LazyPagingItems&lt;RecipeListItemState&gt;, onDeleteClick: (RecipeListItemState) -&gt; Unit, onFavoriteClick: (RecipeListItemState) -&gt; Unit, onItemClick: (RecipeListItemState) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:RecipesList.kt$@Destination @Composable internal fun RecipesList( navController: NavController, baseScreenState: BaseScreenState, viewModel: RecipesListViewModel = hiltViewModel(), )</ID>
+    <ID>FunctionNaming:RecipesListError.kt$@ColorSchemePreview @Composable private fun RecipesListErrorPreview()</ID>
+    <ID>FunctionNaming:RecipesListError.kt$@Composable internal fun RecipesListError( recipes: LazyPagingItems&lt;RecipeListItemState&gt;, modifier: Modifier )</ID>
+    <ID>FunctionNaming:SearchTextField.kt$@ColorSchemePreview @Composable private fun SearchTextFieldPreview()</ID>
+    <ID>FunctionNaming:SearchTextField.kt$@Composable internal fun SearchTextField( searchQuery: String, onValueChanged: (String) -&gt; Unit, @StringRes placeholder: Int, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:ShareRecipeScreen.kt$@ColorSchemePreview @Composable private fun ShareRecipeScreenPreview()</ID>
+    <ID>FunctionNaming:ShareRecipeScreen.kt$@Composable internal fun ShareRecipeScreen()</ID>
+    <ID>LongMethod:AddRecipeScreen.kt$@Composable private fun AddRecipeScreenContent( state: AddRecipeScreenState, onEvent: (AddRecipeScreenEvent) -&gt; Unit )</ID>
+    <ID>LongMethod:AddRecipeViewModel.kt$AddRecipeViewModel$fun onEvent(event: AddRecipeScreenEvent)</ID>
+    <ID>LongMethod:RecipesList.kt$@Composable private fun RecipesList( state: RecipeListState, baseScreenState: BaseScreenState, onEvent: (RecipeListEvent) -&gt; Unit, )</ID>
+    <ID>LongParameterList:BaseURLViewModel.kt$BaseURLViewModel$( private val application: Application, private val serverInfoRepo: ServerInfoRepo, private val authRepo: AuthRepo, private val recipeRepo: RecipeRepo, private val logger: Logger, private val trustedCertificatesStore: TrustedCertificatesStore, private val baseUrlLogRedactor: BaseUrlLogRedactor, )</ID>
+    <ID>MagicNumber:AuthenticationScreen.kt$8f</ID>
+    <ID>MagicNumber:BaseURLScreen.kt$3f</ID>
+    <ID>MagicNumber:BaseURLScreen.kt$7f</ID>
+    <ID>MagicNumber:From24AuthMigrationExecutor.kt$From24AuthMigrationExecutor$24</ID>
+    <ID>MagicNumber:From30MigrationExecutor.kt$From30MigrationExecutor$30</ID>
+    <ID>MagicNumber:PreviewData.kt$2021</ID>
+    <ID>MatchingDeclarationName:RecipeScreen.kt$RecipeScreenArgs</ID>
+    <ID>MaxLineLength:AuthenticationViewModel.kt$AuthenticationViewModel$is NetworkError.Unauthorized -&gt; application.getString(R.string.fragment_authentication_credentials_incorrect)</ID>
+    <ID>MaxLineLength:BaseURLViewModel.kt$BaseURLViewModel$is CertificateCombinedException -&gt; application.getString(R.string.fragment_base_url_invalid_certificate_title)</ID>
+    <ID>MaxLineLength:BaseURLViewModel.kt$BaseURLViewModel$is UnsupportedServerVersionException -&gt; throwable.message ?: application.getString(R.string.fragment_base_url_unsupported_version)</ID>
+    <ID>MaxLineLength:MainActivityViewModel.kt$MainActivityViewModel$logger.d { "baseUrlSet = $baseUrlSet, tokenExists = $tokenExists, disclaimerAccepted = $disclaimerAccepted" }</ID>
+    <ID>MaxLineLength:RecipeModule.kt$RecipeModule$fun</ID>
+    <ID>MaxLineLength:RecipesListError.kt$is NetworkError.NotMealie, is NetworkError.MalformedUrl -&gt; stringResource(id = R.string.fragment_recipes_load_failure_toast_unexpected_response)</ID>
+    <ID>MaxLineLength:ShareRecipeRepoImplTest.kt$ShareRecipeRepoImplTest$subject.saveRecipeByURL("Actually, https://www.allrecipes.com/recipe/215447/dads-leftover-turkey-pot-pie/ is my favorite recipe")</ID>
+    <ID>MaxLineLength:ShareRecipeRepoImplTest.kt$ShareRecipeRepoImplTest$subject.saveRecipeByURL("My favorite recipe: https://www.allrecipes.com/recipe/215447/dads-leftover-turkey-pot-pie/")</ID>
+    <ID>MaxLineLength:ShareRecipeRepoImplTest.kt$ShareRecipeRepoImplTest$subject.saveRecipeByURL("https://www.allrecipes.com/recipe/215447/dads-leftover-turkey-pot-pie/ is my favorite recipe")</ID>
+    <ID>MaxLineLength:ShareRecipeViewModelTest.kt$ShareRecipeViewModelTest$coVerify { shareRecipeRepo.saveRecipeByURL(eq("https://www.allrecipes.com/recipe/215447/dads-leftover-turkey-pot-pie/")) }</ID>
+    <ID>NewLineAtEndOfFile:AddRecipeDataSource.kt$gq.kirmanak.mealient.data.add.AddRecipeDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:AddRecipeModule.kt$gq.kirmanak.mealient.di.AddRecipeModule.kt</ID>
+    <ID>NewLineAtEndOfFile:AddRecipeRepo.kt$gq.kirmanak.mealient.data.add.AddRecipeRepo.kt</ID>
+    <ID>NewLineAtEndOfFile:AddRecipeRepoImpl.kt$gq.kirmanak.mealient.data.add.impl.AddRecipeRepoImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:AddRecipeRepoTest.kt$gq.kirmanak.mealient.data.add.impl.AddRecipeRepoTest.kt</ID>
+    <ID>NewLineAtEndOfFile:AddRecipeScreen.kt$gq.kirmanak.mealient.ui.add.AddRecipeScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:AddRecipeScreenEvent.kt$gq.kirmanak.mealient.ui.add.AddRecipeScreenEvent.kt</ID>
+    <ID>NewLineAtEndOfFile:AddRecipeScreenState.kt$gq.kirmanak.mealient.ui.add.AddRecipeScreenState.kt</ID>
+    <ID>NewLineAtEndOfFile:AddRecipeSnackbarMessage.kt$gq.kirmanak.mealient.ui.add.AddRecipeSnackbarMessage.kt</ID>
+    <ID>NewLineAtEndOfFile:AddRecipeViewModelTest.kt$gq.kirmanak.mealient.ui.add.AddRecipeViewModelTest.kt</ID>
+    <ID>NewLineAtEndOfFile:AppModule.kt$gq.kirmanak.mealient.di.AppModule.kt</ID>
+    <ID>NewLineAtEndOfFile:ArchitectureModule.kt$gq.kirmanak.mealient.di.ArchitectureModule.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthDataSource.kt$gq.kirmanak.mealient.data.auth.AuthDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthDataSourceImpl.kt$gq.kirmanak.mealient.data.auth.impl.AuthDataSourceImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthImplTestData.kt$gq.kirmanak.mealient.test.AuthImplTestData.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthRepo.kt$gq.kirmanak.mealient.data.auth.AuthRepo.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthRepoImpl.kt$gq.kirmanak.mealient.data.auth.impl.AuthRepoImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthRepoImplTest.kt$gq.kirmanak.mealient.data.auth.impl.AuthRepoImplTest.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthStorage.kt$gq.kirmanak.mealient.data.auth.AuthStorage.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthStorageImpl.kt$gq.kirmanak.mealient.data.auth.impl.AuthStorageImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthStorageImplTest.kt$gq.kirmanak.mealient.data.auth.impl.AuthStorageImplTest.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthenticationScreen.kt$gq.kirmanak.mealient.ui.auth.AuthenticationScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthenticationScreenEvent.kt$gq.kirmanak.mealient.ui.auth.AuthenticationScreenEvent.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthenticationScreenState.kt$gq.kirmanak.mealient.ui.auth.AuthenticationScreenState.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthenticationViewModel.kt$gq.kirmanak.mealient.ui.auth.AuthenticationViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:BaseURLModule.kt$gq.kirmanak.mealient.di.BaseURLModule.kt</ID>
+    <ID>NewLineAtEndOfFile:BaseURLScreen.kt$gq.kirmanak.mealient.ui.baseurl.BaseURLScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:BaseURLViewModel.kt$gq.kirmanak.mealient.ui.baseurl.BaseURLViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:BaseURLViewModelTest.kt$gq.kirmanak.mealient.ui.baseurl.BaseURLViewModelTest.kt</ID>
+    <ID>NewLineAtEndOfFile:BuildConfigurationImpl.kt$gq.kirmanak.mealient.data.configuration.BuildConfigurationImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:ConfirmDeleteDialog.kt$gq.kirmanak.mealient.ui.recipes.list.ConfirmDeleteDialog.kt</ID>
+    <ID>NewLineAtEndOfFile:CredentialsLogRedactor.kt$gq.kirmanak.mealient.data.auth.impl.CredentialsLogRedactor.kt</ID>
+    <ID>NewLineAtEndOfFile:DisclaimerModule.kt$gq.kirmanak.mealient.di.DisclaimerModule.kt</ID>
+    <ID>NewLineAtEndOfFile:DisclaimerScreen.kt$gq.kirmanak.mealient.ui.disclaimer.DisclaimerScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:DisclaimerStorage.kt$gq.kirmanak.mealient.data.disclaimer.DisclaimerStorage.kt</ID>
+    <ID>NewLineAtEndOfFile:DisclaimerStorageImpl.kt$gq.kirmanak.mealient.data.disclaimer.DisclaimerStorageImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:DisclaimerStorageImplTest.kt$gq.kirmanak.mealient.data.disclaimer.DisclaimerStorageImplTest.kt</ID>
+    <ID>NewLineAtEndOfFile:DisclaimerViewModel.kt$gq.kirmanak.mealient.ui.disclaimer.DisclaimerViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:DisclaimerViewModelTest.kt$gq.kirmanak.mealient.ui.disclaimer.DisclaimerViewModelTest.kt</ID>
+    <ID>NewLineAtEndOfFile:DrawerContent.kt$gq.kirmanak.mealient.ui.activity.DrawerContent.kt</ID>
+    <ID>NewLineAtEndOfFile:Extensions.kt$gq.kirmanak.mealient.ui.auth.Extensions.kt</ID>
+    <ID>NewLineAtEndOfFile:From24AuthMigrationExecutor.kt$gq.kirmanak.mealient.data.migration.From24AuthMigrationExecutor.kt</ID>
+    <ID>NewLineAtEndOfFile:From24AuthMigrationExecutorTest.kt$gq.kirmanak.mealient.data.migration.From24AuthMigrationExecutorTest.kt</ID>
+    <ID>NewLineAtEndOfFile:From30MigrationExecutor.kt$gq.kirmanak.mealient.data.migration.From30MigrationExecutor.kt</ID>
+    <ID>NewLineAtEndOfFile:HeaderSection.kt$gq.kirmanak.mealient.ui.recipes.info.HeaderSection.kt</ID>
+    <ID>NewLineAtEndOfFile:IngredientsSection.kt$gq.kirmanak.mealient.ui.recipes.info.IngredientsSection.kt</ID>
+    <ID>NewLineAtEndOfFile:InstructionsSection.kt$gq.kirmanak.mealient.ui.recipes.info.InstructionsSection.kt</ID>
+    <ID>NewLineAtEndOfFile:InvalidCertificateDialog.kt$gq.kirmanak.mealient.ui.baseurl.InvalidCertificateDialog.kt</ID>
+    <ID>NewLineAtEndOfFile:KeepScreenOn.kt$gq.kirmanak.mealient.ui.recipes.info.KeepScreenOn.kt</ID>
+    <ID>NewLineAtEndOfFile:MainActivity.kt$gq.kirmanak.mealient.ui.activity.MainActivity.kt</ID>
+    <ID>NewLineAtEndOfFile:MainActivityViewModel.kt$gq.kirmanak.mealient.ui.activity.MainActivityViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:MealieDataSourceWrapper.kt$gq.kirmanak.mealient.data.network.MealieDataSourceWrapper.kt</ID>
+    <ID>NewLineAtEndOfFile:MealieDataSourceWrapperTest.kt$gq.kirmanak.mealient.data.network.MealieDataSourceWrapperTest.kt</ID>
+    <ID>NewLineAtEndOfFile:MigrationDetector.kt$gq.kirmanak.mealient.data.migration.MigrationDetector.kt</ID>
+    <ID>NewLineAtEndOfFile:MigrationDetectorImpl.kt$gq.kirmanak.mealient.data.migration.MigrationDetectorImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:MigrationDetectorImplTest.kt$gq.kirmanak.mealient.data.migration.MigrationDetectorImplTest.kt</ID>
+    <ID>NewLineAtEndOfFile:MigrationExecutor.kt$gq.kirmanak.mealient.data.migration.MigrationExecutor.kt</ID>
+    <ID>NewLineAtEndOfFile:MigrationModule.kt$gq.kirmanak.mealient.di.MigrationModule.kt</ID>
+    <ID>NewLineAtEndOfFile:NavGraphs.kt$gq.kirmanak.mealient.ui.NavGraphs.kt</ID>
+    <ID>NewLineAtEndOfFile:ParseRecipeDataSource.kt$gq.kirmanak.mealient.data.share.ParseRecipeDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:PasswordInput.kt$gq.kirmanak.mealient.ui.auth.PasswordInput.kt</ID>
+    <ID>NewLineAtEndOfFile:PreferencesStorage.kt$gq.kirmanak.mealient.data.storage.PreferencesStorage.kt</ID>
+    <ID>NewLineAtEndOfFile:PreferencesStorageImplTest.kt$gq.kirmanak.mealient.data.storage.PreferencesStorageImplTest.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeDataSource.kt$gq.kirmanak.mealient.data.recipes.network.RecipeDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeImageUrlProvider.kt$gq.kirmanak.mealient.data.recipes.impl.RecipeImageUrlProvider.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeImageUrlProviderImpl.kt$gq.kirmanak.mealient.data.recipes.impl.RecipeImageUrlProviderImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeImageUrlProviderImplTest.kt$gq.kirmanak.mealient.data.recipes.impl.RecipeImageUrlProviderImplTest.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeInfoViewModelTest.kt$gq.kirmanak.mealient.ui.recipes.info.RecipeInfoViewModelTest.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeItem.kt$gq.kirmanak.mealient.ui.recipes.list.RecipeItem.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeListSnackbar.kt$gq.kirmanak.mealient.ui.recipes.list.RecipeListSnackbar.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeModule.kt$gq.kirmanak.mealient.di.RecipeModule.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipePagingSourceFactory.kt$gq.kirmanak.mealient.data.recipes.impl.RecipePagingSourceFactory.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipePagingSourceFactoryImpl.kt$gq.kirmanak.mealient.data.recipes.impl.RecipePagingSourceFactoryImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeRepo.kt$gq.kirmanak.mealient.data.recipes.RecipeRepo.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeRepoImpl.kt$gq.kirmanak.mealient.data.recipes.impl.RecipeRepoImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeRepoTest.kt$gq.kirmanak.mealient.data.recipes.impl.RecipeRepoTest.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipesList.kt$gq.kirmanak.mealient.ui.recipes.list.RecipesList.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipesListError.kt$gq.kirmanak.mealient.ui.recipes.list.RecipesListError.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipesListViewModel.kt$gq.kirmanak.mealient.ui.recipes.list.RecipesListViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipesListViewModelTest.kt$gq.kirmanak.mealient.ui.recipes.RecipesListViewModelTest.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipesRemoteMediator.kt$gq.kirmanak.mealient.data.recipes.impl.RecipesRemoteMediator.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipesRemoteMediatorTest.kt$gq.kirmanak.mealient.data.recipes.impl.RecipesRemoteMediatorTest.kt</ID>
+    <ID>NewLineAtEndOfFile:SearchTextField.kt$gq.kirmanak.mealient.ui.recipes.list.SearchTextField.kt</ID>
+    <ID>NewLineAtEndOfFile:ServerInfoRepoImpl.kt$gq.kirmanak.mealient.data.baseurl.ServerInfoRepoImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:ServerInfoRepoTest.kt$gq.kirmanak.mealient.data.baseurl.ServerInfoRepoTest.kt</ID>
+    <ID>NewLineAtEndOfFile:ServerInfoStorage.kt$gq.kirmanak.mealient.data.baseurl.ServerInfoStorage.kt</ID>
+    <ID>NewLineAtEndOfFile:ServerInfoStorageImpl.kt$gq.kirmanak.mealient.data.baseurl.impl.ServerInfoStorageImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:ShareRecipeModule.kt$gq.kirmanak.mealient.di.ShareRecipeModule.kt</ID>
+    <ID>NewLineAtEndOfFile:ShareRecipeRepo.kt$gq.kirmanak.mealient.data.share.ShareRecipeRepo.kt</ID>
+    <ID>NewLineAtEndOfFile:ShareRecipeRepoImpl.kt$gq.kirmanak.mealient.data.share.ShareRecipeRepoImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:ShareRecipeRepoImplTest.kt$gq.kirmanak.mealient.data.share.ShareRecipeRepoImplTest.kt</ID>
+    <ID>NewLineAtEndOfFile:ShareRecipeScreen.kt$gq.kirmanak.mealient.ui.share.ShareRecipeScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:ShareRecipeViewModel.kt$gq.kirmanak.mealient.ui.share.ShareRecipeViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:ShareRecipeViewModelTest.kt$gq.kirmanak.mealient.ui.share.ShareRecipeViewModelTest.kt</ID>
+    <ID>NewLineAtEndOfFile:VersionDataSource.kt$gq.kirmanak.mealient.data.baseurl.VersionDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:VersionDataSourceImpl.kt$gq.kirmanak.mealient.data.baseurl.VersionDataSourceImpl.kt</ID>
+    <ID>ReturnCount:MainActivityViewModel.kt$MainActivityViewModel$private fun logEmailIntent(): Intent?</ID>
+    <ID>ReturnCount:RecipesRemoteMediator.kt$RecipesRemoteMediator$override suspend fun load( loadType: LoadType, state: PagingState&lt;Int, RecipeSummaryEntity&gt; ): MediatorResult</ID>
+    <ID>TooManyFunctions:BaseURLViewModelTest.kt$BaseURLViewModelTest : BaseUnitTest</ID>
+    <ID>TooManyFunctions:RecipeRepoTest.kt$RecipeRepoTest : BaseUnitTest</ID>
+    <ID>TooManyFunctions:RecipesRemoteMediatorTest.kt$RecipesRemoteMediatorTest : BaseUnitTest</ID>
+    <ID>UnusedPrivateMember:AddRecipeScreen.kt$@ColorSchemePreview @Composable private fun AddRecipeScreenPreview()</ID>
+    <ID>UnusedPrivateMember:AuthenticationScreen.kt$@ColorSchemePreview @Composable private fun AuthenticationScreenPreview()</ID>
+    <ID>UnusedPrivateMember:BaseURLScreen.kt$@ColorSchemePreview @Composable private fun BaseURLScreenPreview()</ID>
+    <ID>UnusedPrivateMember:DisclaimerScreen.kt$@ColorSchemePreview @Composable private fun DisclaimerScreenPreview()</ID>
+    <ID>UnusedPrivateMember:InvalidCertificateDialog.kt$@ColorSchemePreview @Composable private fun InvalidCertificateDialogPreview()</ID>
+    <ID>UnusedPrivateMember:RecipeItem.kt$@ColorSchemePreview @Composable private fun RecipeItemPreview()</ID>
+    <ID>UnusedPrivateMember:RecipeScreen.kt$@ColorSchemePreview @Composable private fun RecipeScreenPreview()</ID>
+    <ID>UnusedPrivateMember:RecipesList.kt$@ColorSchemePreview @Composable private fun RecipesTopAppBarPreview()</ID>
+    <ID>UnusedPrivateMember:RecipesListError.kt$@ColorSchemePreview @Composable private fun RecipesListErrorPreview()</ID>
+    <ID>UnusedPrivateMember:SearchTextField.kt$@ColorSchemePreview @Composable private fun SearchTextFieldPreview()</ID>
+    <ID>UnusedPrivateMember:ShareRecipeScreen.kt$@ColorSchemePreview @Composable private fun ShareRecipeScreenPreview()</ID>
+    <ID>WildcardImport:BaseURLModule.kt$import gq.kirmanak.mealient.data.baseurl.*</ID>
+    <ID>WildcardImport:RecipeModule.kt$import gq.kirmanak.mealient.data.recipes.impl.*</ID>
+    <ID>WildcardImport:RecipesRemoteMediator.kt$import androidx.paging.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

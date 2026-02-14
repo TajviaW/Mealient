@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>LoopWithTooManyJumpStatements:LoggerImpl.kt$LoggerImpl$for</ID>
+    <ID>NewLineAtEndOfFile:Appender.kt$gq.kirmanak.mealient.logging.Appender.kt</ID>
+    <ID>NewLineAtEndOfFile:AppenderModule.kt$gq.kirmanak.mealient.logging.AppenderModule.kt</ID>
+    <ID>NewLineAtEndOfFile:FileAppender.kt$gq.kirmanak.mealient.logging.FileAppender.kt</ID>
+    <ID>NewLineAtEndOfFile:LogLevel.kt$gq.kirmanak.mealient.logging.LogLevel.kt</ID>
+    <ID>NewLineAtEndOfFile:LogRedactor.kt$gq.kirmanak.mealient.logging.LogRedactor.kt</ID>
+    <ID>NewLineAtEndOfFile:LogcatAppender.kt$gq.kirmanak.mealient.logging.LogcatAppender.kt</ID>
+    <ID>NewLineAtEndOfFile:Logger.kt$gq.kirmanak.mealient.logging.Logger.kt</ID>
+    <ID>NewLineAtEndOfFile:LoggerImpl.kt$gq.kirmanak.mealient.logging.LoggerImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:LoggerModule.kt$gq.kirmanak.mealient.logging.LoggerModule.kt</ID>
+  </CurrentIssues>
+</SmellBaseline>

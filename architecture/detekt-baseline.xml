@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>NewLineAtEndOfFile:AppDispatchers.kt$gq.kirmanak.mealient.architecture.configuration.AppDispatchers.kt</ID>
+    <ID>NewLineAtEndOfFile:AppDispatchersImpl.kt$gq.kirmanak.mealient.architecture.configuration.AppDispatchersImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:ArchitectureModule.kt$gq.kirmanak.mealient.architecture.configuration.ArchitectureModule.kt</ID>
+    <ID>NewLineAtEndOfFile:BuildConfiguration.kt$gq.kirmanak.mealient.architecture.configuration.BuildConfiguration.kt</ID>
+    <ID>NewLineAtEndOfFile:FlowExtensions.kt$gq.kirmanak.mealient.architecture.FlowExtensions.kt</ID>
+    <ID>NewLineAtEndOfFile:FlowExtensionsKtTest.kt$gq.kirmanak.mealient.architecture.FlowExtensionsKtTest.kt</ID>
+  </CurrentIssues>
+</SmellBaseline>

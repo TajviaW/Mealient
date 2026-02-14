@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>NewLineAtEndOfFile:AddRecipeInputSerializer.kt$gq.kirmanak.mealient.datastore.recipe.AddRecipeInputSerializer.kt</ID>
+    <ID>NewLineAtEndOfFile:AddRecipeStorage.kt$gq.kirmanak.mealient.datastore.recipe.AddRecipeStorage.kt</ID>
+    <ID>NewLineAtEndOfFile:AddRecipeStorageImpl.kt$gq.kirmanak.mealient.datastore.recipe.AddRecipeStorageImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:DataStoreModule.kt$gq.kirmanak.mealient.datastore.DataStoreModule.kt</ID>
+  </CurrentIssues>
+</SmellBaseline>

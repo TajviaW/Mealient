@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>FunctionNaming:BaseScreen.kt$@Composable @OptIn(ExperimentalMaterial3Api::class) fun NavigationTopAppBar( drawerState: DrawerState, )</ID>
+    <ID>FunctionNaming:BaseScreen.kt$@Composable fun OpenDrawerIconButton( drawerState: DrawerState, )</ID>
+    <ID>FunctionNaming:BaseScreen.kt$@OptIn(ExperimentalLayoutApi::class) @Composable fun BaseScreen( topAppBar: @Composable () -&gt; Unit = { }, snackbarHostState: SnackbarHostState = remember { SnackbarHostState() }, content: @Composable (Modifier) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:BaseScreen.kt$@OptIn(ExperimentalLayoutApi::class) @Composable fun BaseScreenWithNavigation( baseScreenState: BaseScreenState, drawerState: DrawerState = rememberDrawerState(initialValue = DrawerValue.Closed), topAppBar: @Composable () -&gt; Unit = { NavigationTopAppBar(drawerState) }, snackbarHostState: SnackbarHostState = remember { SnackbarHostState() }, content: @Composable (Modifier) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:CenteredProgressIndicator.kt$@ColorSchemePreview @Composable fun PreviewCenteredProgressIndicator()</ID>
+    <ID>FunctionNaming:CenteredProgressIndicator.kt$@Composable fun CenteredProgressIndicator( modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:DrawerContent.kt$@Composable internal fun DrawerContent( drawerState: DrawerState, drawerItems: List&lt;DrawerItem&gt;, )</ID>
+    <ID>FunctionNaming:DrawerContent.kt$@Composable private fun NavigationDrawerItem( name: String, selected: Boolean, icon: ImageVector, onClick: () -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:EmptyListError.kt$@Composable @ColorSchemePreview fun PreviewEmptyListError()</ID>
+    <ID>FunctionNaming:EmptyListError.kt$@Composable fun EmptyListError( text: String, modifier: Modifier = Modifier, onRetry: () -&gt; Unit = {}, retryButtonText: String? = null, )</ID>
+    <ID>FunctionNaming:ErrorSnackbar.kt$@Composable fun ErrorSnackbar( text: String?, snackbarHostState: SnackbarHostState, onSnackbarShown: () -&gt; Unit, )</ID>
+    <ID>FunctionNaming:LazyColumnPullRefresh.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun LazyColumnPullRefresh( isRefreshing: Boolean, onRefresh: () -&gt; Unit, contentPadding: PaddingValues, verticalArrangement: Arrangement.Vertical, lazyColumnContent: LazyListScope.() -&gt; Unit, modifier: Modifier = Modifier, lazyListState: LazyListState = rememberLazyListState(), )</ID>
+    <ID>FunctionNaming:LazyColumnWithLoadingState.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun &lt;T&gt; LazyColumnWithLoadingState( loadingState: LoadingState&lt;List&lt;T&gt;&gt;, emptyListError: String, retryButtonText: String, modifier: Modifier = Modifier, contentPadding: PaddingValues = PaddingValues(0.dp), verticalArrangement: Arrangement.Vertical = Arrangement.Top, snackbarText: String?, onSnackbarShown: () -&gt; Unit = {}, onRefresh: () -&gt; Unit = {}, floatingActionButton: @Composable () -&gt; Unit = {}, floatingActionButtonPosition: FabPosition = FabPosition.End, lazyListState: LazyListState = rememberLazyListState(), lazyColumnContent: LazyListScope.(List&lt;T&gt;) -&gt; Unit = {}, )</ID>
+    <ID>FunctionNaming:LazyPagingColumnPullRefresh.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun &lt;T : Any&gt; LazyPagingColumnPullRefresh( lazyPagingItems: LazyPagingItems&lt;T&gt;, modifier: Modifier = Modifier, contentPadding: PaddingValues = PaddingValues(0.dp), verticalArrangement: Arrangement.Vertical = Arrangement.Top, lazyColumnContent: LazyListScope.() -&gt; Unit, )</ID>
+    <ID>FunctionNaming:Theme.kt$@Composable fun AppTheme( isDarkTheme: Boolean = isSystemInDarkTheme(), isDynamicColor: Boolean = DynamicColors.isDynamicColorAvailable(), content: @Composable () -&gt; Unit )</ID>
+    <ID>FunctionNaming:TopProgressIndicator.kt$@Composable fun TopProgressIndicator( isLoading: Boolean, modifier: Modifier = Modifier, content: @Composable BoxScope.() -&gt; Unit = {}, )</ID>
+    <ID>LongParameterList:LazyColumnPullRefresh.kt$( isRefreshing: Boolean, onRefresh: () -&gt; Unit, contentPadding: PaddingValues, verticalArrangement: Arrangement.Vertical, lazyColumnContent: LazyListScope.() -&gt; Unit, modifier: Modifier = Modifier, lazyListState: LazyListState = rememberLazyListState(), )</ID>
+    <ID>LongParameterList:LazyColumnWithLoadingState.kt$( loadingState: LoadingState&lt;List&lt;T&gt;&gt;, emptyListError: String, retryButtonText: String, modifier: Modifier = Modifier, contentPadding: PaddingValues = PaddingValues(0.dp), verticalArrangement: Arrangement.Vertical = Arrangement.Top, snackbarText: String?, onSnackbarShown: () -&gt; Unit = {}, onRefresh: () -&gt; Unit = {}, floatingActionButton: @Composable () -&gt; Unit = {}, floatingActionButtonPosition: FabPosition = FabPosition.End, lazyListState: LazyListState = rememberLazyListState(), lazyColumnContent: LazyListScope.(List&lt;T&gt;) -&gt; Unit = {}, )</ID>
+    <ID>MatchingDeclarationName:DrawerContent.kt$DrawerItem</ID>
+    <ID>NewLineAtEndOfFile:BaseScreen.kt$gq.kirmanak.mealient.ui.components.BaseScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:DrawerContent.kt$gq.kirmanak.mealient.ui.components.DrawerContent.kt</ID>
+    <ID>NewLineAtEndOfFile:EmptyListError.kt$gq.kirmanak.mealient.ui.components.EmptyListError.kt</ID>
+    <ID>NewLineAtEndOfFile:ErrorSnackbar.kt$gq.kirmanak.mealient.ui.components.ErrorSnackbar.kt</ID>
+    <ID>NewLineAtEndOfFile:LazyColumnPullRefresh.kt$gq.kirmanak.mealient.ui.components.LazyColumnPullRefresh.kt</ID>
+    <ID>NewLineAtEndOfFile:LazyPagingColumnPullRefresh.kt$gq.kirmanak.mealient.ui.components.LazyPagingColumnPullRefresh.kt</ID>
+    <ID>NewLineAtEndOfFile:LoadingHelper.kt$gq.kirmanak.mealient.ui.util.LoadingHelper.kt</ID>
+    <ID>NewLineAtEndOfFile:LoadingHelperFactory.kt$gq.kirmanak.mealient.ui.util.LoadingHelperFactory.kt</ID>
+    <ID>NewLineAtEndOfFile:LoadingHelperFactoryImpl.kt$gq.kirmanak.mealient.ui.util.LoadingHelperFactoryImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:LoadingHelperImpl.kt$gq.kirmanak.mealient.ui.util.LoadingHelperImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:LoadingState.kt$gq.kirmanak.mealient.ui.util.LoadingState.kt</ID>
+    <ID>NewLineAtEndOfFile:Theme.kt$gq.kirmanak.mealient.ui.Theme.kt</ID>
+    <ID>NewLineAtEndOfFile:TopProgressIndicator.kt$gq.kirmanak.mealient.ui.components.TopProgressIndicator.kt</ID>
+    <ID>NewLineAtEndOfFile:UiModule.kt$gq.kirmanak.mealient.ui.UiModule.kt</ID>
+  </CurrentIssues>
+</SmellBaseline>

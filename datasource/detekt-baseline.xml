@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>MagicNumber:ApiVersion.kt$ApiVersion.Companion$3</ID>
+    <ID>MagicNumber:CacheBuilderImpl.kt$CacheBuilderImpl$100</ID>
+    <ID>MagicNumber:NetworkRequestWrapperImpl.kt$NetworkRequestWrapperImpl$401</ID>
+    <ID>MagicNumber:NetworkRequestWrapperImpl.kt$NetworkRequestWrapperImpl$403</ID>
+    <ID>MaxLineLength:GetRecipeResponse.kt$GetRecipeInstructionResponse$@SerialName("ingredientReferences") val ingredientReferences: List&lt;GetRecipeInstructionIngredientReference&gt; = emptyList()</ID>
+    <ID>MaxLineLength:GetShoppingListResponse.kt$GetShoppingListItemResponse$@SerialName("recipeReferences") val recipeReferences: List&lt;GetShoppingListItemRecipeReferenceResponse&gt; = emptyList()</ID>
+    <ID>NewLineAtEndOfFile:AdvancedX509TrustManager.kt$gq.kirmanak.mealient.datasource.impl.AdvancedX509TrustManager.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthKtorConfiguration.kt$gq.kirmanak.mealient.datasource.ktor.AuthKtorConfiguration.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthKtorConfigurationTest.kt$gq.kirmanak.mealient.datasource.AuthKtorConfigurationTest.kt</ID>
+    <ID>NewLineAtEndOfFile:AuthenticationProvider.kt$gq.kirmanak.mealient.datasource.AuthenticationProvider.kt</ID>
+    <ID>NewLineAtEndOfFile:CacheBuilderImpl.kt$gq.kirmanak.mealient.datasource.impl.CacheBuilderImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:CertificateCombinedException.kt$gq.kirmanak.mealient.datasource.CertificateCombinedException.kt</ID>
+    <ID>NewLineAtEndOfFile:ContentNegotiationConfiguration.kt$gq.kirmanak.mealient.datasource.ktor.ContentNegotiationConfiguration.kt</ID>
+    <ID>NewLineAtEndOfFile:CreateApiTokenResponse.kt$gq.kirmanak.mealient.datasource.models.CreateApiTokenResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:DataSourceExtensions.kt$gq.kirmanak.mealient.datasource.DataSourceExtensions.kt</ID>
+    <ID>NewLineAtEndOfFile:DataSourceModule.kt$gq.kirmanak.mealient.datasource.DataSourceModule.kt</ID>
+    <ID>NewLineAtEndOfFile:EncodingKtorConfiguration.kt$gq.kirmanak.mealient.datasource.ktor.EncodingKtorConfiguration.kt</ID>
+    <ID>NewLineAtEndOfFile:ErrorDetail.kt$gq.kirmanak.mealient.datasource.models.ErrorDetail.kt</ID>
+    <ID>NewLineAtEndOfFile:GetItemLabelResponse.kt$gq.kirmanak.mealient.datasource.models.GetItemLabelResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:GetRecipeResponse.kt$gq.kirmanak.mealient.datasource.models.GetRecipeResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:GetRecipeSummaryResponse.kt$gq.kirmanak.mealient.datasource.models.GetRecipeSummaryResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:GetShoppingListsSummaryResponse.kt$gq.kirmanak.mealient.datasource.models.GetShoppingListsSummaryResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:GetTokenResponse.kt$gq.kirmanak.mealient.datasource.models.GetTokenResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:KtorClientBuilder.kt$gq.kirmanak.mealient.datasource.ktor.KtorClientBuilder.kt</ID>
+    <ID>NewLineAtEndOfFile:KtorClientBuilderImpl.kt$gq.kirmanak.mealient.datasource.ktor.KtorClientBuilderImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:KtorConfiguration.kt$gq.kirmanak.mealient.datasource.ktor.KtorConfiguration.kt</ID>
+    <ID>NewLineAtEndOfFile:KtorModule.kt$gq.kirmanak.mealient.datasource.ktor.KtorModule.kt</ID>
+    <ID>NewLineAtEndOfFile:MealieDataSource.kt$gq.kirmanak.mealient.datasource.MealieDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:MealieService.kt$gq.kirmanak.mealient.datasource.MealieService.kt</ID>
+    <ID>NewLineAtEndOfFile:MealieServiceKtor.kt$gq.kirmanak.mealient.datasource.impl.MealieServiceKtor.kt</ID>
+    <ID>NewLineAtEndOfFile:NetworkRequestWrapper.kt$gq.kirmanak.mealient.datasource.NetworkRequestWrapper.kt</ID>
+    <ID>NewLineAtEndOfFile:NetworkRequestWrapperImpl.kt$gq.kirmanak.mealient.datasource.impl.NetworkRequestWrapperImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:OkHttpBuilderImpl.kt$gq.kirmanak.mealient.datasource.impl.OkHttpBuilderImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:ServerUrlProvider.kt$gq.kirmanak.mealient.datasource.ServerUrlProvider.kt</ID>
+    <ID>NewLineAtEndOfFile:SslSocketFactoryFactory.kt$gq.kirmanak.mealient.datasource.impl.SslSocketFactoryFactory.kt</ID>
+    <ID>NewLineAtEndOfFile:TokenChangeListener.kt$gq.kirmanak.mealient.datasource.TokenChangeListener.kt</ID>
+    <ID>NewLineAtEndOfFile:TokenChangeListenerKtor.kt$gq.kirmanak.mealient.datasource.ktor.TokenChangeListenerKtor.kt</ID>
+    <ID>NewLineAtEndOfFile:TrustedCertificatesStore.kt$gq.kirmanak.mealient.datasource.TrustedCertificatesStore.kt</ID>
+    <ID>NewLineAtEndOfFile:TrustedCertificatesStoreImpl.kt$gq.kirmanak.mealient.datasource.impl.TrustedCertificatesStoreImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:UpdateRecipeRequest.kt$gq.kirmanak.mealient.datasource.models.UpdateRecipeRequest.kt</ID>
+    <ID>NewLineAtEndOfFile:VersionResponse.kt$gq.kirmanak.mealient.datasource.models.VersionResponse.kt</ID>
+    <ID>ReturnCount:ApiVersion.kt$ApiVersion.Companion$fun parse(versionString: String): ApiVersion</ID>
+    <ID>TooGenericExceptionCaught:DataSourceExtensions.kt$e: Throwable</ID>
+    <ID>TooManyFunctions:AuthKtorConfigurationTest.kt$AuthKtorConfigurationTest : BaseUnitTest</ID>
+    <ID>TooManyFunctions:MealieDataSource.kt$MealieDataSource</ID>
+    <ID>TooManyFunctions:MealieDataSourceImpl.kt$MealieDataSourceImpl : MealieDataSource</ID>
+    <ID>TooManyFunctions:MealieService.kt$MealieService</ID>
+    <ID>TooManyFunctions:MealieServiceKtor.kt$MealieServiceKtor : MealieService</ID>
+    <ID>WildcardImport:AdvancedX509TrustManager.kt$import java.security.cert.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

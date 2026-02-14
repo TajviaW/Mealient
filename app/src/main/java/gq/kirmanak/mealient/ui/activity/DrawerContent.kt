@@ -2,11 +2,11 @@ package gq.kirmanak.mealient.ui.activity
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.material.icons.automirrored.filled.Logout
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.CalendarToday
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.SyncAlt
 import androidx.compose.material3.DrawerState
@@ -79,7 +79,7 @@ internal fun createDrawerItems(
     return listOf(
         createNavigationItem(
             nameRes = R.string.menu_navigation_drawer_recipes_list,
-            icon = Icons.Default.List,
+            icon = Icons.AutoMirrored.Filled.List,
             direction = RecipesListDestination,
         ),
         createNavigationItem(
@@ -104,7 +104,7 @@ internal fun createDrawerItems(
         ),
         createActionItem(
             nameRes = R.string.menu_navigation_drawer_logout,
-            icon = Icons.Default.Logout,
+            icon = Icons.AutoMirrored.Filled.Logout,
             appEvent = AppEvent.Logout,
         ),
         createActionItem(

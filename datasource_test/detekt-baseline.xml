@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>PackageNaming:TestData.kt$package gq.kirmanak.mealient.datasource_test</ID>
+  </CurrentIssues>
+</SmellBaseline>

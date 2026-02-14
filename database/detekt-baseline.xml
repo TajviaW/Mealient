@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>MaxLineLength:RecipeDao.kt$RecipeDao$@Query("SELECT * FROM recipe_summaries WHERE recipe_summaries_name LIKE '%' || :query || '%' ORDER BY recipe_summaries_date_added DESC")</ID>
+    <ID>MaxLineLength:RecipeDao.kt$RecipeDao$@Query("UPDATE recipe_summaries SET recipe_summaries_is_favorite = 0 WHERE recipe_summaries_slug NOT IN (:favorites)")</ID>
+    <ID>MaxLineLength:RecipeStorageImpl.kt$RecipeStorageImpl$logger.v { "saveRecipeInfo() called with: recipe = $recipe, ingredients = $ingredients, instructions = $instructions, ingredientToInstructions = $ingredientToInstruction" }</ID>
+    <ID>NewLineAtEndOfFile:AppDb.kt$gq.kirmanak.mealient.database.AppDb.kt</ID>
+    <ID>NewLineAtEndOfFile:DatabaseModule.kt$gq.kirmanak.mealient.database.DatabaseModule.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeDao.kt$gq.kirmanak.mealient.database.recipe.RecipeDao.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeIngredientEntity.kt$gq.kirmanak.mealient.database.recipe.entity.RecipeIngredientEntity.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeStorage.kt$gq.kirmanak.mealient.database.recipe.RecipeStorage.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeStorageImpl.kt$gq.kirmanak.mealient.database.recipe.RecipeStorageImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeStorageImplTest.kt$gq.kirmanak.mealient.database.RecipeStorageImplTest.kt</ID>
+    <ID>NewLineAtEndOfFile:RecipeSummaryEntity.kt$gq.kirmanak.mealient.database.recipe.entity.RecipeSummaryEntity.kt</ID>
+    <ID>NewLineAtEndOfFile:RoomTypeConverters.kt$gq.kirmanak.mealient.database.RoomTypeConverters.kt</ID>
+    <ID>NewLineAtEndOfFile:RoomTypeConvertersTest.kt$gq.kirmanak.mealient.database.RoomTypeConvertersTest.kt</ID>
+    <ID>TooManyFunctions:RecipeDao.kt$RecipeDao</ID>
+    <ID>WildcardImport:RecipeDao.kt$import androidx.room.*</ID>
+    <ID>WildcardImport:RecipeDao.kt$import gq.kirmanak.mealient.database.recipe.entity.*</ID>
+    <ID>WildcardImport:RoomTypeConverters.kt$import kotlinx.datetime.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

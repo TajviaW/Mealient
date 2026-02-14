@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>NewLineAtEndOfFile:BaseUnitTest.kt$gq.kirmanak.mealient.test.BaseUnitTest.kt</ID>
+    <ID>NewLineAtEndOfFile:FakeLogger.kt$gq.kirmanak.mealient.test.FakeLogger.kt</ID>
+    <ID>NewLineAtEndOfFile:FakeLoggerModule.kt$gq.kirmanak.mealient.test.FakeLoggerModule.kt</ID>
+    <ID>NewLineAtEndOfFile:HiltRobolectricTest.kt$gq.kirmanak.mealient.test.HiltRobolectricTest.kt</ID>
+  </CurrentIssues>
+</SmellBaseline>

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>NewLineAtEndOfFile:ModelMapper.kt$gq.kirmanak.mealient.model_mapper.ModelMapper.kt</ID>
+    <ID>NewLineAtEndOfFile:ModelMapperImpl.kt$gq.kirmanak.mealient.model_mapper.ModelMapperImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:ModelMapperModule.kt$gq.kirmanak.mealient.model_mapper.ModelMapperModule.kt</ID>
+    <ID>NewLineAtEndOfFile:ModelMappingsTest.kt$gq.kirmanak.mealient.model_mapper.ModelMappingsTest.kt</ID>
+    <ID>PackageNaming:ModelMapper.kt$package gq.kirmanak.mealient.model_mapper</ID>
+    <ID>PackageNaming:ModelMapperImpl.kt$package gq.kirmanak.mealient.model_mapper</ID>
+    <ID>PackageNaming:ModelMapperModule.kt$package gq.kirmanak.mealient.model_mapper</ID>
+    <ID>PackageNaming:ModelMappingsTest.kt$package gq.kirmanak.mealient.model_mapper</ID>
+    <ID>TooManyFunctions:ModelMapper.kt$ModelMapper</ID>
+    <ID>TooManyFunctions:ModelMapperImpl.kt$ModelMapperImpl : ModelMapper</ID>
+  </CurrentIssues>
+</SmellBaseline>
