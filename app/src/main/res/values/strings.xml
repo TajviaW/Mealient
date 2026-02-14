@@ -13,6 +13,7 @@
 	<string name="fragment_baseurl_url_input_empty">URL can\'t be empty</string>
 	<string name="fragment_base_url_no_connection">Can\'t connect, check address.</string>
 	<string name="fragment_base_url_unexpected_response">Unexpected response. Is it Mealie?</string>
+	<string name="fragment_base_url_unsupported_version">This app requires Mealie v2.0 or later. Please upgrade your Mealie server to continue.</string>
 	<string name="fragment_base_url_malformed_url">Check URL format: %s</string>
 	<string name="fragment_base_url_save">Proceed</string>
 	<string name="fragment_base_url_unknown_error" translatable="false">@string/fragment_authentication_unknown_error</string>
@@ -71,6 +72,7 @@
 	<string name="fragment_recipes_favorite_added">Added %1$s to favorites</string>
 	<string name="fragment_recipes_favorite_removed">Removed %1$s from favorites</string>
 	<string name="menu_navigation_drawer_shopping_lists">Shopping lists</string>
+	<string name="menu_navigation_drawer_meal_plans">Meal plans</string>
 	<string name="menu_navigation_drawer_email_logs">Email logs</string>
 	<string name="activity_main_email_logs_subject">Mealient logs</string>
 	<string name="activity_main_email_logs_confirmation_message">The logs contain sensitive data such as API token, shopping lists, and recipes. API tokens can be revoked using web client. The file can be viewed and edited if you send it to yourself instead.</string>

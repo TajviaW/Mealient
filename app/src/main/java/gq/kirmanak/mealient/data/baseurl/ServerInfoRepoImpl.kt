@@ -1,6 +1,8 @@
 package gq.kirmanak.mealient.data.baseurl
 
 import gq.kirmanak.mealient.datasource.ServerUrlProvider
+import gq.kirmanak.mealient.datasource.UnsupportedServerVersionException
+import gq.kirmanak.mealient.datasource.models.ApiVersion
 import gq.kirmanak.mealient.datasource.models.VersionResponse
 import gq.kirmanak.mealient.logging.Logger
 import kotlinx.coroutines.flow.Flow
@@ -24,8 +26,16 @@ class ServerInfoRepoImpl @Inject constructor(
     override suspend fun tryBaseURL(baseURL: String): Result<VersionResponse> {
         return versionDataSource.runCatching {
             requestVersion(baseURL)
-        }.onSuccess {
+        }.onSuccess { versionResponse ->
+            // Validate that server is running Mealie v2.0+
+            if (!ApiVersion.isV2OrLater(versionResponse.version)) {
+                throw UnsupportedServerVersionException(
+                    "This app requires Mealie v2.0 or later. Server version: ${versionResponse.version}"
+                )
+            }
+            logger.i { "Server version validated: ${versionResponse.version}" }
             serverInfoStorage.storeBaseURL(baseURL)
+            serverInfoStorage.storeVersion(versionResponse.version)
         }
     }
 }

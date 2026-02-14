@@ -24,6 +24,8 @@ class PreferencesStorageImpl @Inject constructor(
 
     override val baseUrlKey = stringPreferencesKey("baseUrl")
 
+    override val serverVersionKey = stringPreferencesKey("serverVersion")
+
     override val isDisclaimerAcceptedKey = booleanPreferencesKey("isDisclaimedAccepted")
 
     override val lastExecutedMigrationVersionKey: Preferences.Key<Int> =

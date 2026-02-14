@@ -13,8 +13,14 @@ class ServerInfoStorageImpl @Inject constructor(
     private val baseUrlKey: Preferences.Key<String>
         get() = preferencesStorage.baseUrlKey
 
+    private val versionKey: Preferences.Key<String>
+        get() = preferencesStorage.serverVersionKey
+
     override val baseUrlFlow: Flow<String?>
         get() = preferencesStorage.valueUpdates(baseUrlKey)
+
+    override val versionFlow: Flow<String?>
+        get() = preferencesStorage.valueUpdates(versionKey)
 
     override suspend fun getBaseURL(): String? = getValue(baseUrlKey)
 
@@ -23,6 +29,16 @@ class ServerInfoStorageImpl @Inject constructor(
             preferencesStorage.removeValues(baseUrlKey)
         } else {
             preferencesStorage.storeValues(Pair(baseUrlKey, baseURL))
+        }
+    }
+
+    override suspend fun getVersion(): String? = getValue(versionKey)
+
+    override suspend fun storeVersion(version: String?) {
+        if (version == null) {
+            preferencesStorage.removeValues(versionKey)
+        } else {
+            preferencesStorage.storeValues(Pair(versionKey, version))
         }
     }
 

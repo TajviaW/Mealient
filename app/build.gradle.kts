@@ -77,6 +77,7 @@ dependencies {
     implementation(project(":logging"))
     implementation(project(":ui"))
     implementation(project(":features:shopping_lists"))
+    implementation(project(":features:meal_plans"))
     implementation(project(":model_mapper"))
     implementation(libs.android.material.material)
     implementation(libs.androidx.coreKtx)

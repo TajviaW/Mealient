@@ -12,6 +12,7 @@ import gq.kirmanak.mealient.data.recipes.RecipeRepo
 import gq.kirmanak.mealient.datasource.CertificateCombinedException
 import gq.kirmanak.mealient.datasource.NetworkError
 import gq.kirmanak.mealient.datasource.TrustedCertificatesStore
+import gq.kirmanak.mealient.datasource.UnsupportedServerVersionException
 import gq.kirmanak.mealient.datasource.findCauseAsInstanceOf
 import gq.kirmanak.mealient.logging.Logger
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -160,6 +161,7 @@ internal class BaseURLViewModel @Inject constructor(
             is NetworkError.NoServerConnection -> application.getString(R.string.fragment_base_url_no_connection)
             is NetworkError.NotMealie -> application.getString(R.string.fragment_base_url_unexpected_response)
             is CertificateCombinedException -> application.getString(R.string.fragment_base_url_invalid_certificate_title)
+            is UnsupportedServerVersionException -> throwable.message ?: application.getString(R.string.fragment_base_url_unsupported_version)
             is NetworkError.MalformedUrl -> {
                 val cause = throwable.cause?.message ?: throwable.message
                 application.getString(R.string.fragment_base_url_malformed_url, cause)

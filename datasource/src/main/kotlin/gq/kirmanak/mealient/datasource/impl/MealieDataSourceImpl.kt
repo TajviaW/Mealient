@@ -6,11 +6,14 @@ import gq.kirmanak.mealient.datasource.NetworkError
 import gq.kirmanak.mealient.datasource.NetworkRequestWrapper
 import gq.kirmanak.mealient.datasource.models.CreateApiTokenRequest
 import gq.kirmanak.mealient.datasource.models.CreateApiTokenResponse
+import gq.kirmanak.mealient.datasource.models.CreateMealPlanRequest
 import gq.kirmanak.mealient.datasource.models.CreateRecipeRequest
 import gq.kirmanak.mealient.datasource.models.CreateShoppingListItemRequest
 import gq.kirmanak.mealient.datasource.models.CreateShoppingListRequest
 import gq.kirmanak.mealient.datasource.models.ErrorDetail
 import gq.kirmanak.mealient.datasource.models.GetFoodsResponse
+import gq.kirmanak.mealient.datasource.models.GetMealPlanResponse
+import gq.kirmanak.mealient.datasource.models.GetMealPlansResponse
 import gq.kirmanak.mealient.datasource.models.GetRecipeResponse
 import gq.kirmanak.mealient.datasource.models.GetRecipeSummaryResponse
 import gq.kirmanak.mealient.datasource.models.GetShoppingListItemResponse
@@ -19,6 +22,7 @@ import gq.kirmanak.mealient.datasource.models.GetShoppingListsResponse
 import gq.kirmanak.mealient.datasource.models.GetUnitsResponse
 import gq.kirmanak.mealient.datasource.models.GetUserInfoResponse
 import gq.kirmanak.mealient.datasource.models.ParseRecipeURLRequest
+import gq.kirmanak.mealient.datasource.models.UpdateMealPlanRequest
 import gq.kirmanak.mealient.datasource.models.UpdateRecipeRequest
 import gq.kirmanak.mealient.datasource.models.VersionResponse
 import io.ktor.client.call.NoTransformationFoundException
@@ -271,4 +275,39 @@ internal class MealieDataSourceImpl @Inject constructor(
         }.let(::JsonObject)
         updateShoppingList(id, updatedItem)
     }
+
+    override suspend fun getMealPlans(startDate: String, endDate: String): GetMealPlansResponse =
+        networkRequestWrapper.makeCallAndHandleUnauthorized(
+            block = { service.getMealPlans(startDate, endDate) },
+            logMethod = { "getMealPlans" },
+            logParameters = { "startDate=$startDate, endDate=$endDate" }
+        )
+
+    override suspend fun getMealPlan(id: String): GetMealPlanResponse =
+        networkRequestWrapper.makeCallAndHandleUnauthorized(
+            block = { service.getMealPlan(id) },
+            logMethod = { "getMealPlan" },
+            logParameters = { "id=$id" }
+        )
+
+    override suspend fun createMealPlan(request: CreateMealPlanRequest): GetMealPlanResponse =
+        networkRequestWrapper.makeCallAndHandleUnauthorized(
+            block = { service.createMealPlan(request) },
+            logMethod = { "createMealPlan" },
+            logParameters = { "request=$request" }
+        )
+
+    override suspend fun updateMealPlan(id: String, request: UpdateMealPlanRequest): GetMealPlanResponse =
+        networkRequestWrapper.makeCallAndHandleUnauthorized(
+            block = { service.updateMealPlan(id, request) },
+            logMethod = { "updateMealPlan" },
+            logParameters = { "id=$id, request=$request" }
+        )
+
+    override suspend fun deleteMealPlan(id: String) =
+        networkRequestWrapper.makeCallAndHandleUnauthorized(
+            block = { service.deleteMealPlan(id) },
+            logMethod = { "deleteMealPlan" },
+            logParameters = { "id=$id" }
+        )
 }

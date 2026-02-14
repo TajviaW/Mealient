@@ -3,6 +3,7 @@ package gq.kirmanak.mealient.ui
 import com.ramcosta.composedestinations.spec.DestinationSpec
 import com.ramcosta.composedestinations.spec.NavGraphSpec
 import com.ramcosta.composedestinations.spec.Route
+import gq.kirmanak.mealient.meal_plans.ui.destinations.MealPlansScreenDestination
 import gq.kirmanak.mealient.shopping_lists.ui.destinations.ShoppingListScreenDestination
 import gq.kirmanak.mealient.shopping_lists.ui.destinations.ShoppingListsScreenDestination
 import gq.kirmanak.mealient.ui.destinations.AddRecipeScreenDestination
@@ -32,6 +33,14 @@ internal object NavGraphs {
         ),
     )
 
+    val mealPlans: NavGraphSpec = NavGraphImpl(
+        route = "meal_plans",
+        startRoute = MealPlansScreenDestination,
+        destinations = listOf(
+            MealPlansScreenDestination,
+        ),
+    )
+
     val root: NavGraphSpec = NavGraphImpl(
         route = "root",
         startRoute = recipes,
@@ -44,6 +53,7 @@ internal object NavGraphs {
         nestedNavGraphs = listOf(
             recipes,
             shoppingLists,
+            mealPlans,
         ),
     )
 

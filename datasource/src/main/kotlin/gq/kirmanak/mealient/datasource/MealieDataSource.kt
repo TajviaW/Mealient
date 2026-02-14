@@ -2,10 +2,13 @@ package gq.kirmanak.mealient.datasource
 
 import gq.kirmanak.mealient.datasource.models.CreateApiTokenRequest
 import gq.kirmanak.mealient.datasource.models.CreateApiTokenResponse
+import gq.kirmanak.mealient.datasource.models.CreateMealPlanRequest
 import gq.kirmanak.mealient.datasource.models.CreateRecipeRequest
 import gq.kirmanak.mealient.datasource.models.CreateShoppingListItemRequest
 import gq.kirmanak.mealient.datasource.models.CreateShoppingListRequest
 import gq.kirmanak.mealient.datasource.models.GetFoodsResponse
+import gq.kirmanak.mealient.datasource.models.GetMealPlanResponse
+import gq.kirmanak.mealient.datasource.models.GetMealPlansResponse
 import gq.kirmanak.mealient.datasource.models.GetRecipeResponse
 import gq.kirmanak.mealient.datasource.models.GetRecipeSummaryResponse
 import gq.kirmanak.mealient.datasource.models.GetShoppingListItemResponse
@@ -14,6 +17,7 @@ import gq.kirmanak.mealient.datasource.models.GetShoppingListsResponse
 import gq.kirmanak.mealient.datasource.models.GetUnitsResponse
 import gq.kirmanak.mealient.datasource.models.GetUserInfoResponse
 import gq.kirmanak.mealient.datasource.models.ParseRecipeURLRequest
+import gq.kirmanak.mealient.datasource.models.UpdateMealPlanRequest
 import gq.kirmanak.mealient.datasource.models.UpdateRecipeRequest
 import gq.kirmanak.mealient.datasource.models.VersionResponse
 
@@ -82,4 +86,14 @@ interface MealieDataSource {
     suspend fun deleteShoppingList(id: String)
 
     suspend fun updateShoppingListName(id: String, name: String)
+
+    suspend fun getMealPlans(startDate: String, endDate: String): GetMealPlansResponse
+
+    suspend fun getMealPlan(id: String): GetMealPlanResponse
+
+    suspend fun createMealPlan(request: CreateMealPlanRequest): GetMealPlanResponse
+
+    suspend fun updateMealPlan(id: String, request: UpdateMealPlanRequest): GetMealPlanResponse
+
+    suspend fun deleteMealPlan(id: String)
 }

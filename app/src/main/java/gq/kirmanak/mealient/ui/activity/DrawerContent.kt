@@ -3,6 +3,7 @@ package gq.kirmanak.mealient.ui.activity
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.CalendarToday
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Logout
@@ -90,6 +91,11 @@ internal fun createDrawerItems(
             nameRes = R.string.menu_navigation_drawer_shopping_lists,
             icon = Icons.Default.ShoppingCart,
             direction = NavGraphs.shoppingLists,
+        ),
+        createNavigationItem(
+            nameRes = R.string.menu_navigation_drawer_meal_plans,
+            icon = Icons.Default.CalendarToday,
+            direction = NavGraphs.mealPlans,
         ),
         createNavigationItem(
             nameRes = R.string.menu_navigation_drawer_change_url,
