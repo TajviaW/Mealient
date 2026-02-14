@@ -3,6 +3,7 @@ package gq.kirmanak.mealient.data.auth.impl
 import android.content.SharedPreferences
 import androidx.annotation.VisibleForTesting
 import androidx.core.content.edit
+import gq.kirmanak.mealient.data.auth.AuthMethod
 import gq.kirmanak.mealient.data.auth.AuthStorage
 import gq.kirmanak.mealient.datasource.TokenChangeListener
 import gq.kirmanak.mealient.datastore.DataStoreModule.Companion.ENCRYPTED
@@ -11,6 +12,7 @@ import gq.kirmanak.mealient.logging.Logger
 import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import java.util.concurrent.Executors
 import javax.inject.Inject
@@ -28,6 +30,19 @@ class AuthStorageImpl @Inject constructor(
         get() = sharedPreferences
             .prefsChangeFlow(logger) { getString(AUTH_TOKEN_KEY, null) }
             .distinctUntilChanged()
+
+    override val authMethodFlow: Flow<AuthMethod>
+        get() = sharedPreferences
+            .prefsChangeFlow(logger) { getString(AUTH_METHOD_KEY, null) }
+            .distinctUntilChanged()
+            .map { method ->
+                when (method) {
+                    "password" -> AuthMethod.PASSWORD
+                    "oidc" -> AuthMethod.OIDC
+                    else -> AuthMethod.NONE
+                }
+            }
+
     private val singleThreadDispatcher = Executors.newSingleThreadExecutor().asCoroutineDispatcher()
 
     override suspend fun setAuthToken(authToken: String?) {
@@ -37,6 +52,49 @@ class AuthStorageImpl @Inject constructor(
     }
 
     override suspend fun getAuthToken(): String? = getString(AUTH_TOKEN_KEY)
+
+    override suspend fun setPasswordAuthToken(authToken: String) {
+        logger.v { "setPasswordAuthToken() called" }
+        tokenChangeListener.onTokenChange()
+        withContext(singleThreadDispatcher) {
+            sharedPreferences.edit(commit = true) {
+                putString(AUTH_TOKEN_KEY, authToken)
+                putString(AUTH_METHOD_KEY, "password")
+            }
+        }
+    }
+
+    override suspend fun setOidcTokens(
+        accessToken: String,
+        refreshToken: String?,
+        idToken: String?,
+    ) {
+        logger.v { "setOidcTokens() called" }
+        tokenChangeListener.onTokenChange()
+        withContext(singleThreadDispatcher) {
+            sharedPreferences.edit(commit = true) {
+                putString(AUTH_TOKEN_KEY, accessToken)
+                putString(OIDC_REFRESH_TOKEN_KEY, refreshToken)
+                putString(OIDC_ID_TOKEN_KEY, idToken)
+                putString(AUTH_METHOD_KEY, "oidc")
+            }
+        }
+    }
+
+    override suspend fun getOidcRefreshToken(): String? = getString(OIDC_REFRESH_TOKEN_KEY)
+
+    override suspend fun getOidcIdToken(): String? = getString(OIDC_ID_TOKEN_KEY)
+
+    override suspend fun clearOidcTokens() {
+        logger.v { "clearOidcTokens() called" }
+        withContext(singleThreadDispatcher) {
+            sharedPreferences.edit(commit = true) {
+                remove(OIDC_REFRESH_TOKEN_KEY)
+                remove(OIDC_ID_TOKEN_KEY)
+                remove(AUTH_METHOD_KEY)
+            }
+        }
+    }
 
     private suspend fun putString(
         key: String,
@@ -55,5 +113,14 @@ class AuthStorageImpl @Inject constructor(
     companion object {
         @VisibleForTesting
         const val AUTH_TOKEN_KEY = "authToken"
+
+        @VisibleForTesting
+        const val OIDC_REFRESH_TOKEN_KEY = "oidcRefreshToken"
+
+        @VisibleForTesting
+        const val OIDC_ID_TOKEN_KEY = "oidcIdToken"
+
+        @VisibleForTesting
+        const val AUTH_METHOD_KEY = "authMethod"
     }
 }

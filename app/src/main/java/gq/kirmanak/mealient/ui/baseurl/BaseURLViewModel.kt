@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import gq.kirmanak.mealient.R
 import gq.kirmanak.mealient.data.auth.AuthRepo
+import gq.kirmanak.mealient.data.auth.oidc.OidcAuthRepo
 import gq.kirmanak.mealient.data.baseurl.ServerInfoRepo
 import gq.kirmanak.mealient.data.baseurl.impl.BaseUrlLogRedactor
 import gq.kirmanak.mealient.data.recipes.RecipeRepo
@@ -27,6 +28,7 @@ internal class BaseURLViewModel @Inject constructor(
     private val application: Application,
     private val serverInfoRepo: ServerInfoRepo,
     private val authRepo: AuthRepo,
+    private val oidcAuthRepo: OidcAuthRepo,
     private val recipeRepo: RecipeRepo,
     private val logger: Logger,
     private val trustedCertificatesStore: TrustedCertificatesStore,
@@ -114,6 +116,15 @@ internal class BaseURLViewModel @Inject constructor(
                 errorText = null,
                 invalidCertificateDialogState = null,
             )
+        }
+
+        // Discover OIDC configuration in background
+        viewModelScope.launch {
+            val baseUrl = serverInfoRepo.getUrl()
+            if (baseUrl != null) {
+                logger.v { "Attempting OIDC discovery for $baseUrl" }
+                oidcAuthRepo.discoverOidcConfig(baseUrl)
+            }
         }
     }
 

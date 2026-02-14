@@ -42,6 +42,31 @@
                 android:value="androidx.sharetarget.ChooserTargetServiceCompat" />
         </activity>
 
+        <!-- OIDC callback handler that processes tokens -->
+        <activity
+            android:name=".ui.auth.OidcCallbackActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
+
+        <!-- OAuth redirect receiver for OIDC authentication -->
+        <activity
+            android:name="net.openid.appauth.RedirectUriReceiverActivity"
+            android:exported="true"
+            tools:node="replace">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="mealient"
+                    android:host="oauth"
+                    android:path="/callback" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.customtabs.action.CustomTabsService"
+                android:value="android.support.customtabs.action.CustomTabsService" />
+        </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

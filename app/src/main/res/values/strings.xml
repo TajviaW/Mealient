@@ -3,6 +3,10 @@
 	<string name="fragment_authentication_input_hint_password">Password</string>
 	<string name="fragment_authentication_input_hint_url">Server URL</string>
 	<string name="fragment_authentication_button_login">Login</string>
+	<string name="fragment_authentication_button_sso">Sign in with SSO</string>
+	<string name="fragment_authentication_button_use_password">Use password instead</string>
+	<string name="fragment_authentication_button_or_use_sso">Or sign in with SSO</string>
+	<string name="fragment_authentication_sso_error">SSO authentication failed</string>
 	<string name="content_description_view_holder_recipe_image">Picture of the cooked meal</string>
 	<string name="menu_navigation_drawer_logout">Logout</string>
 	<string name="view_holder_recipe_text_placeholder">Loading…</string>

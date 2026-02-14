@@ -2,6 +2,7 @@ package gq.kirmanak.mealient.di
 
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
@@ -12,9 +13,18 @@ import gq.kirmanak.mealient.data.auth.impl.AuthDataSourceImpl
 import gq.kirmanak.mealient.data.auth.impl.AuthRepoImpl
 import gq.kirmanak.mealient.data.auth.impl.AuthStorageImpl
 import gq.kirmanak.mealient.data.auth.impl.CredentialsLogRedactor
+import gq.kirmanak.mealient.data.auth.oidc.OidcAuthRepo
+import gq.kirmanak.mealient.data.auth.oidc.OidcAuthRepoImpl
+import gq.kirmanak.mealient.data.auth.oidc.OidcAuthService
+import gq.kirmanak.mealient.data.auth.oidc.OidcTokenExchange
+import gq.kirmanak.mealient.data.auth.oidc.OidcTokenExchangeImpl
+import gq.kirmanak.mealient.data.auth.oidc.OidcTokenRefresh
+import gq.kirmanak.mealient.data.auth.oidc.OidcTokenRefreshImpl
 import gq.kirmanak.mealient.datasource.AuthenticationProvider
 import gq.kirmanak.mealient.logging.LogRedactor
 import gq.kirmanak.mealient.shopping_lists.repo.ShoppingListsAuthRepo
+import net.openid.appauth.AuthorizationService
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -38,4 +48,21 @@ interface AuthModule {
     @Binds
     @IntoSet
     fun bindCredentialsLogRedactor(impl: CredentialsLogRedactor): LogRedactor
+
+    @Binds
+    fun bindOidcAuthRepo(impl: OidcAuthRepoImpl): OidcAuthRepo
+
+    @Binds
+    fun bindOidcTokenExchange(impl: OidcTokenExchangeImpl): OidcTokenExchange
+
+    @Binds
+    fun bindOidcTokenRefresh(impl: OidcTokenRefreshImpl): OidcTokenRefresh
+
+    companion object {
+        @Provides
+        @Singleton
+        fun provideAuthorizationService(oidcAuthService: OidcAuthService): AuthorizationService {
+            return oidcAuthService.getAuthorizationService()
+        }
+    }
 }

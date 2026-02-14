@@ -83,6 +83,8 @@ coil = "2.7.0"
 kover = "0.8.3"
 # https://github.com/detekt/detekt/releases
 detekt = "1.23.7"
+# https://github.com/openid/AppAuth-Android/releases
+appauth = "0.11.1"
 
 [libraries]
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
@@ -188,6 +190,8 @@ ktor-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", versi
 
 coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
+openid-appauth = { group = "net.openid", name = "appauth", version.ref = "appauth" }
 
 [plugins]
 sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }

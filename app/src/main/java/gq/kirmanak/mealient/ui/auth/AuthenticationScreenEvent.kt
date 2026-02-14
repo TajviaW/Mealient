@@ -8,5 +8,9 @@ internal sealed interface AuthenticationScreenEvent {
 
     data object OnLoginClick : AuthenticationScreenEvent
 
+    data object OnSsoLoginClick : AuthenticationScreenEvent
+
+    data object OnShowPasswordLogin : AuthenticationScreenEvent
+
     data object TogglePasswordVisibility : AuthenticationScreenEvent
 }

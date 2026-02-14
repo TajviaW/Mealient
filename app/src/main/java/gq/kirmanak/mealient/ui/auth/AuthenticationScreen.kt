@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -75,27 +77,62 @@ internal fun AuthenticationScreen(
         ) {
             Spacer(modifier = Modifier.weight(2f))
 
-            EmailInput(
-                input = state.emailInput,
-                onEvent = onEvent,
-            )
+            if (state.oidcAvailable && !state.showPasswordFields) {
+                // SSO-first UI
+                Button(
+                    modifier = Modifier
+                        .semantics { testTag = "sso-login-button" }
+                        .fillMaxWidth(),
+                    onClick = { onEvent(AuthenticationScreenEvent.OnSsoLoginClick) },
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.fragment_authentication_button_sso),
+                    )
+                }
 
-            PasswordInput(
-                input = state.passwordInput,
-                errorText = state.errorText,
-                isPasswordVisible = state.isPasswordVisible,
-                onEvent = onEvent,
-            )
-
-            Button(
-                modifier = Modifier
-                    .semantics { testTag = "login-button" },
-                enabled = state.buttonEnabled,
-                onClick = { onEvent(AuthenticationScreenEvent.OnLoginClick) },
-            ) {
-                Text(
-                    text = stringResource(id = R.string.fragment_authentication_button_login),
+                OutlinedButton(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = { onEvent(AuthenticationScreenEvent.OnShowPasswordLogin) },
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.fragment_authentication_button_use_password),
+                    )
+                }
+            } else {
+                // Password fields (always visible if OIDC not available)
+                EmailInput(
+                    input = state.emailInput,
+                    onEvent = onEvent,
                 )
+
+                PasswordInput(
+                    input = state.passwordInput,
+                    errorText = state.errorText,
+                    isPasswordVisible = state.isPasswordVisible,
+                    onEvent = onEvent,
+                )
+
+                Button(
+                    modifier = Modifier
+                        .semantics { testTag = "login-button" },
+                    enabled = state.buttonEnabled,
+                    onClick = { onEvent(AuthenticationScreenEvent.OnLoginClick) },
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.fragment_authentication_button_login),
+                    )
+                }
+
+                // Show SSO option if available
+                if (state.oidcAvailable) {
+                    TextButton(
+                        onClick = { onEvent(AuthenticationScreenEvent.OnSsoLoginClick) },
+                    ) {
+                        Text(
+                            text = stringResource(id = R.string.fragment_authentication_button_or_use_sso),
+                        )
+                    }
+                }
             }
 
             Spacer(modifier = Modifier.weight(8f))

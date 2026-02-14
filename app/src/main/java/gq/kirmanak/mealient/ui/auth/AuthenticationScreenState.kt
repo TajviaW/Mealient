@@ -8,4 +8,6 @@ internal data class AuthenticationScreenState(
     val passwordInput: String = "",
     val buttonEnabled: Boolean = false,
     val isPasswordVisible: Boolean = false,
+    val oidcAvailable: Boolean = false,
+    val showPasswordFields: Boolean = true,
 )

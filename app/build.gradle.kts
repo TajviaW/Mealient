@@ -96,6 +96,7 @@ dependencies {
     implementation(libs.androidx.compose.animation)
     implementation(libs.androidx.hilt.navigationCompose)
     implementation(libs.jetbrains.kotlinx.coroutinesAndroid)
+    implementation(libs.openid.appauth)
 
     debugImplementation(libs.squareup.leakcanary)
 
