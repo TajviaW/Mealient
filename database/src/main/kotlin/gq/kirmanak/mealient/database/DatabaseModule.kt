@@ -8,9 +8,11 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import gq.kirmanak.mealient.database.mealplan.MealPlanDao
 import gq.kirmanak.mealient.database.recipe.RecipeDao
 import gq.kirmanak.mealient.database.recipe.RecipeStorage
 import gq.kirmanak.mealient.database.recipe.RecipeStorageImpl
+import gq.kirmanak.mealient.database.shopping.ShoppingListDao
 import javax.inject.Singleton
 
 @Module
@@ -27,6 +29,12 @@ internal interface DatabaseModule {
 
         @Provides
         fun provideRecipeDao(db: AppDb): RecipeDao = db.recipeDao()
+
+        @Provides
+        fun provideShoppingListDao(db: AppDb): ShoppingListDao = db.shoppingListDao()
+
+        @Provides
+        fun provideMealPlanDao(db: AppDb): MealPlanDao = db.mealPlanDao()
     }
 
     @Binds
