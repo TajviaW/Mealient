@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import gq.kirmanak.mealient.R
 import gq.kirmanak.mealient.data.auth.AuthRepo
 import gq.kirmanak.mealient.data.auth.oidc.OidcAuthRepo
+import gq.kirmanak.mealient.data.auth.oidc.OidcAuthorizationRequest
 import gq.kirmanak.mealient.data.auth.oidc.OidcAuthService
 import gq.kirmanak.mealient.data.auth.oidc.OidcAuthState
 import gq.kirmanak.mealient.datasource.NetworkError
