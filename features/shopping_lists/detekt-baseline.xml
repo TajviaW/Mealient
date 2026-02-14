@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:ShoppingListScreen.kt$@Composable fun ShoppingListItem( itemState: ShoppingListItemState.ExistingItem, showDivider: Boolean, modifier: Modifier = Modifier, onCheckedChange: (Boolean) -&gt; Unit = {}, onDismissed: () -&gt; Unit = {}, onEditStart: () -&gt; Unit = {}, )</ID>
+    <ID>FunctionNaming:DeleteListConfirmDialog.kt$@Composable internal fun DeleteListConfirmDialog( onEvent: (ShoppingListsEvent) -&gt; Unit, onConfirm: ShoppingListsEvent, listName: String, )</ID>
+    <ID>FunctionNaming:DeleteListConfirmDialog.kt$@Preview @Composable private fun DeleteListConfirmDialogPreview()</ID>
+    <ID>FunctionNaming:EditableItemBox.kt$@Composable private fun EditableItemBoxBackground( icon: ImageVector, backgroundColor: Color, iconAlignment: Alignment, contentDescription: String, modifier: Modifier = Modifier, contentColor: Color = MaterialTheme.colorScheme.contentColorFor(backgroundColor) )</ID>
+    <ID>FunctionNaming:EditableItemBox.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable internal fun EditableItemBox( onDelete: () -&gt; Unit, onEdit: () -&gt; Unit, deleteContentDescription: String, editContentDescription: String, content: @Composable (RowScope.() -&gt; Unit), modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:MealientTextField.kt$@Composable internal fun MealientTextField( value: String, onValueChange: (newValue: String) -&gt; Unit, modifier: Modifier = Modifier, keyboardActions: KeyboardActions = KeyboardActions.Default, keyboardOptions: KeyboardOptions = KeyboardOptions.Default, singleLine: Boolean = true, trailingIcon: @Composable (() -&gt; Unit)? = null, placeholder: @Composable (() -&gt; Unit)? = null )</ID>
+    <ID>FunctionNaming:ShoppingListNameDialog.kt$@ColorSchemePreview @Composable private fun ShoppingListNameDialogEditPreview()</ID>
+    <ID>FunctionNaming:ShoppingListNameDialog.kt$@ColorSchemePreview @Composable private fun ShoppingListNameDialogNewPreview()</ID>
+    <ID>FunctionNaming:ShoppingListNameDialog.kt$@Composable private fun NameTextField( listName: String, isEdit: Boolean, onEvent: (ShoppingListsEvent) -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:ShoppingListNameDialog.kt$@Composable private fun ShoppingListNameDialogContent( listName: String, onEvent: (ShoppingListsEvent) -&gt; Unit, oldName: String?, onConfirm: ShoppingListsEvent, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:ShoppingListNameDialog.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable internal fun ShoppingListNameDialog( onEvent: (ShoppingListsEvent) -&gt; Unit, listName: String, onConfirm: ShoppingListsEvent, modifier: Modifier = Modifier, oldName: String? = null )</ID>
+    <ID>FunctionNaming:ShoppingListScreen.kt$@ColorSchemePreview @Composable fun ShoppingListItemEditorNonFoodPreview()</ID>
+    <ID>FunctionNaming:ShoppingListScreen.kt$@ColorSchemePreview @Composable fun ShoppingListItemEditorPreview()</ID>
+    <ID>FunctionNaming:ShoppingListScreen.kt$@Composable @ColorSchemePreview fun PreviewShoppingListItemChecked()</ID>
+    <ID>FunctionNaming:ShoppingListScreen.kt$@Composable @ColorSchemePreview fun PreviewShoppingListItemUnchecked()</ID>
+    <ID>FunctionNaming:ShoppingListScreen.kt$@Composable fun ShoppingListItem( itemState: ShoppingListItemState.ExistingItem, showDivider: Boolean, modifier: Modifier = Modifier, onCheckedChange: (Boolean) -&gt; Unit = {}, onDismissed: () -&gt; Unit = {}, onEditStart: () -&gt; Unit = {}, )</ID>
+    <ID>FunctionNaming:ShoppingListScreen.kt$@Composable fun ShoppingListSectionHeader(state: ShoppingListItemState.ItemLabel)</ID>
+    <ID>FunctionNaming:ShoppingListScreen.kt$@Composable private fun ShoppingListItemEditorButtonRow( state: ShoppingListItemEditorState, modifier: Modifier = Modifier, onEditCancelled: () -&gt; Unit = {}, onEditConfirmed: () -&gt; Unit = {}, onIconButtonClick: () -&gt; Unit, )</ID>
+    <ID>FunctionNaming:ShoppingListScreen.kt$@Composable private fun ShoppingListItemEditorFirstRow( state: ShoppingListItemEditorState, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:ShoppingListScreen.kt$@Composable private fun ShoppingListScreen( loadingState: LoadingState&lt;ShoppingListScreenState&gt;, errorToShowInSnackbar: Throwable?, onSnackbarShown: () -&gt; Unit, onRefreshRequest: () -&gt; Unit, onAddItemClicked: () -&gt; Unit, onEditCancel: (ShoppingListItemState.ExistingItem) -&gt; Unit, onEditConfirm: (ShoppingListItemState.ExistingItem, ShoppingListItemEditorState) -&gt; Unit, onItemCheckedChange: (ShoppingListItemState.ExistingItem, Boolean) -&gt; Unit, onDeleteItem: (ShoppingListItemState.ExistingItem) -&gt; Unit, onEditStart: (ShoppingListItemState.ExistingItem) -&gt; Unit, onAddCancel: (ShoppingListItemState.NewItem) -&gt; Unit, onAddConfirm: (ShoppingListItemState.NewItem) -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:ShoppingListScreen.kt$@Destination( navArgsDelegate = ShoppingListNavArgs::class, ) @Composable internal fun ShoppingListScreen( shoppingListViewModel: ShoppingListViewModel = hiltViewModel(), )</ID>
+    <ID>FunctionNaming:ShoppingListScreen.kt$@OptIn(ExperimentalFoundationApi::class) @Composable fun ShoppingListItemEditor( state: ShoppingListItemEditorState, modifier: Modifier = Modifier, onEditCancelled: () -&gt; Unit = {}, onEditConfirmed: () -&gt; Unit = {} )</ID>
+    <ID>FunctionNaming:ShoppingListScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable private fun ShoppingListItemEditorFoodRow( state: ShoppingListItemEditorState, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:ShoppingListsScreen.kt$@Composable @ColorSchemePreview private fun PreviewEditingShoppingListCard()</ID>
+    <ID>FunctionNaming:ShoppingListsScreen.kt$@Composable @ColorSchemePreview private fun PreviewShoppingListCard()</ID>
+    <ID>FunctionNaming:ShoppingListsScreen.kt$@Composable private fun ShoppingListCard( listName: String, onClick: () -&gt; Unit, onDelete: () -&gt; Unit, onEdit: () -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>FunctionNaming:ShoppingListsScreen.kt$@Composable private fun ShoppingListsScreenDialog( dialog: ShoppingListsDialog, onEvent: (ShoppingListsEvent) -&gt; Unit, )</ID>
+    <ID>FunctionNaming:ShoppingListsScreen.kt$@Destination @Composable internal fun ShoppingListsScreen( navController: NavController, baseScreenState: BaseScreenState, shoppingListsViewModel: ShoppingListsViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:ShoppingListScreen.kt$@Composable fun ShoppingListItem( itemState: ShoppingListItemState.ExistingItem, showDivider: Boolean, modifier: Modifier = Modifier, onCheckedChange: (Boolean) -&gt; Unit = {}, onDismissed: () -&gt; Unit = {}, onEditStart: () -&gt; Unit = {}, )</ID>
+    <ID>LongMethod:ShoppingListScreen.kt$@Composable private fun ShoppingListScreen( loadingState: LoadingState&lt;ShoppingListScreenState&gt;, errorToShowInSnackbar: Throwable?, onSnackbarShown: () -&gt; Unit, onRefreshRequest: () -&gt; Unit, onAddItemClicked: () -&gt; Unit, onEditCancel: (ShoppingListItemState.ExistingItem) -&gt; Unit, onEditConfirm: (ShoppingListItemState.ExistingItem, ShoppingListItemEditorState) -&gt; Unit, onItemCheckedChange: (ShoppingListItemState.ExistingItem, Boolean) -&gt; Unit, onDeleteItem: (ShoppingListItemState.ExistingItem) -&gt; Unit, onEditStart: (ShoppingListItemState.ExistingItem) -&gt; Unit, onAddCancel: (ShoppingListItemState.NewItem) -&gt; Unit, onAddConfirm: (ShoppingListItemState.NewItem) -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>LongMethod:ShoppingListScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable private fun ShoppingListItemEditorFoodRow( state: ShoppingListItemEditorState, modifier: Modifier = Modifier, )</ID>
+    <ID>LongParameterList:EditableItemBox.kt$( icon: ImageVector, backgroundColor: Color, iconAlignment: Alignment, contentDescription: String, modifier: Modifier = Modifier, contentColor: Color = MaterialTheme.colorScheme.contentColorFor(backgroundColor) )</ID>
+    <ID>LongParameterList:EditableItemBox.kt$( onDelete: () -&gt; Unit, onEdit: () -&gt; Unit, deleteContentDescription: String, editContentDescription: String, content: @Composable (RowScope.() -&gt; Unit), modifier: Modifier = Modifier )</ID>
+    <ID>LongParameterList:MealientTextField.kt$( value: String, onValueChange: (newValue: String) -&gt; Unit, modifier: Modifier = Modifier, keyboardActions: KeyboardActions = KeyboardActions.Default, keyboardOptions: KeyboardOptions = KeyboardOptions.Default, singleLine: Boolean = true, trailingIcon: @Composable (() -&gt; Unit)? = null, placeholder: @Composable (() -&gt; Unit)? = null )</ID>
+    <ID>LongParameterList:ShoppingListScreen.kt$( itemState: ShoppingListItemState.ExistingItem, showDivider: Boolean, modifier: Modifier = Modifier, onCheckedChange: (Boolean) -&gt; Unit = {}, onDismissed: () -&gt; Unit = {}, onEditStart: () -&gt; Unit = {}, )</ID>
+    <ID>LongParameterList:ShoppingListScreen.kt$( loadingState: LoadingState&lt;ShoppingListScreenState&gt;, errorToShowInSnackbar: Throwable?, onSnackbarShown: () -&gt; Unit, onRefreshRequest: () -&gt; Unit, onAddItemClicked: () -&gt; Unit, onEditCancel: (ShoppingListItemState.ExistingItem) -&gt; Unit, onEditConfirm: (ShoppingListItemState.ExistingItem, ShoppingListItemEditorState) -&gt; Unit, onItemCheckedChange: (ShoppingListItemState.ExistingItem, Boolean) -&gt; Unit, onDeleteItem: (ShoppingListItemState.ExistingItem) -&gt; Unit, onEditStart: (ShoppingListItemState.ExistingItem) -&gt; Unit, onAddCancel: (ShoppingListItemState.NewItem) -&gt; Unit, onAddConfirm: (ShoppingListItemState.NewItem) -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>LongParameterList:ShoppingListScreen.kt$ShoppingListItemEditorState$( val foods: List&lt;GetFoodResponse&gt;, val units: List&lt;GetUnitResponse&gt;, val position: Int, val listId: String, note: String = "", quantity: String = "1.0", isFood: Boolean = false, food: GetFoodResponse? = null, unit: GetUnitResponse? = null, )</ID>
+    <ID>MagicNumber:ShoppingListScreen.kt$3f</ID>
+    <ID>MatchingDeclarationName:ShopingListLabelHelper.kt$ItemLabelGroup</ID>
+    <ID>MaxLineLength:ShoppingListScreen.kt$contentDescription = stringResource(id = R.string.shopping_list_screen_add_icon_content_description)</ID>
+    <ID>MaxLineLength:ShoppingListScreen.kt$contentDescription = stringResource(id = R.string.shopping_list_screen_editor_checked_unit_content_description)</ID>
+    <ID>MaxLineLength:ShoppingListViewModelTest.kt$ShoppingListViewModelTest$lambdaSlot: CapturingSlot&lt;suspend () -&gt; Result&lt;ShoppingListData&gt;&gt; = slot&lt;suspend () -&gt; Result&lt;ShoppingListData&gt;&gt;()</ID>
+    <ID>MaxLineLength:ShoppingListsScreen.kt$contentDescription = stringResource(id = R.string.shopping_lists_screen_add_icon_content_description)</ID>
+    <ID>NewLineAtEndOfFile:DeleteListConfirmDialog.kt$gq.kirmanak.mealient.shopping_lists.ui.list.DeleteListConfirmDialog.kt</ID>
+    <ID>NewLineAtEndOfFile:EditableItemBox.kt$gq.kirmanak.mealient.shopping_lists.ui.composables.EditableItemBox.kt</ID>
+    <ID>NewLineAtEndOfFile:GetErrorMessage.kt$gq.kirmanak.mealient.shopping_lists.ui.composables.GetErrorMessage.kt</ID>
+    <ID>NewLineAtEndOfFile:MealientTextField.kt$gq.kirmanak.mealient.shopping_lists.ui.composables.MealientTextField.kt</ID>
+    <ID>NewLineAtEndOfFile:ShopingListLabelHelper.kt$gq.kirmanak.mealient.shopping_lists.util.ShopingListLabelHelper.kt</ID>
+    <ID>NewLineAtEndOfFile:ShoppingListScreen.kt$gq.kirmanak.mealient.shopping_lists.ui.details.ShoppingListScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:ShoppingListViewModel.kt$gq.kirmanak.mealient.shopping_lists.ui.details.ShoppingListViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:ShoppingListViewModelTest.kt$gq.kirmanak.mealient.shopping_lists.ui.details.ShoppingListViewModelTest.kt</ID>
+    <ID>NewLineAtEndOfFile:ShoppingListsAuthRepo.kt$gq.kirmanak.mealient.shopping_lists.repo.ShoppingListsAuthRepo.kt</ID>
+    <ID>NewLineAtEndOfFile:ShoppingListsDataSource.kt$gq.kirmanak.mealient.shopping_lists.network.ShoppingListsDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:ShoppingListsModule.kt$gq.kirmanak.mealient.shopping_lists.ShoppingListsModule.kt</ID>
+    <ID>NewLineAtEndOfFile:ShoppingListsRepo.kt$gq.kirmanak.mealient.shopping_lists.repo.ShoppingListsRepo.kt</ID>
+    <ID>NewLineAtEndOfFile:ShoppingListsRepoImpl.kt$gq.kirmanak.mealient.shopping_lists.repo.ShoppingListsRepoImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:ShoppingListsViewModel.kt$gq.kirmanak.mealient.shopping_lists.ui.list.ShoppingListsViewModel.kt</ID>
+    <ID>PackageNaming:DeleteListConfirmDialog.kt$package gq.kirmanak.mealient.shopping_lists.ui.list</ID>
+    <ID>PackageNaming:EditableItemBox.kt$package gq.kirmanak.mealient.shopping_lists.ui.composables</ID>
+    <ID>PackageNaming:GetErrorMessage.kt$package gq.kirmanak.mealient.shopping_lists.ui.composables</ID>
+    <ID>PackageNaming:MealientTextField.kt$package gq.kirmanak.mealient.shopping_lists.ui.composables</ID>
+    <ID>PackageNaming:ShopingListLabelHelper.kt$package gq.kirmanak.mealient.shopping_lists.util</ID>
+    <ID>PackageNaming:ShoppingListData.kt$package gq.kirmanak.mealient.shopping_lists.ui.details</ID>
+    <ID>PackageNaming:ShoppingListEditingState.kt$package gq.kirmanak.mealient.shopping_lists.ui.details</ID>
+    <ID>PackageNaming:ShoppingListNameDialog.kt$package gq.kirmanak.mealient.shopping_lists.ui.list</ID>
+    <ID>PackageNaming:ShoppingListScreen.kt$package gq.kirmanak.mealient.shopping_lists.ui.details</ID>
+    <ID>PackageNaming:ShoppingListScreenState.kt$package gq.kirmanak.mealient.shopping_lists.ui.details</ID>
+    <ID>PackageNaming:ShoppingListViewModel.kt$package gq.kirmanak.mealient.shopping_lists.ui.details</ID>
+    <ID>PackageNaming:ShoppingListViewModelTest.kt$package gq.kirmanak.mealient.shopping_lists.ui.details</ID>
+    <ID>PackageNaming:ShoppingListsAuthRepo.kt$package gq.kirmanak.mealient.shopping_lists.repo</ID>
+    <ID>PackageNaming:ShoppingListsDataSource.kt$package gq.kirmanak.mealient.shopping_lists.network</ID>
+    <ID>PackageNaming:ShoppingListsDataSourceImpl.kt$package gq.kirmanak.mealient.shopping_lists.network</ID>
+    <ID>PackageNaming:ShoppingListsModule.kt$package gq.kirmanak.mealient.shopping_lists</ID>
+    <ID>PackageNaming:ShoppingListsRepo.kt$package gq.kirmanak.mealient.shopping_lists.repo</ID>
+    <ID>PackageNaming:ShoppingListsRepoImpl.kt$package gq.kirmanak.mealient.shopping_lists.repo</ID>
+    <ID>PackageNaming:ShoppingListsScreen.kt$package gq.kirmanak.mealient.shopping_lists.ui.list</ID>
+    <ID>PackageNaming:ShoppingListsViewModel.kt$package gq.kirmanak.mealient.shopping_lists.ui.list</ID>
+    <ID>TooManyFunctions:ShoppingListScreen.kt$gq.kirmanak.mealient.shopping_lists.ui.details.ShoppingListScreen.kt</ID>
+    <ID>TooManyFunctions:ShoppingListViewModel.kt$ShoppingListViewModel : ViewModel</ID>
+    <ID>TooManyFunctions:ShoppingListsViewModel.kt$ShoppingListsViewModel : ViewModel</ID>
+    <ID>UnusedPrivateMember:DeleteListConfirmDialog.kt$@Preview @Composable private fun DeleteListConfirmDialogPreview()</ID>
+    <ID>UnusedPrivateMember:ShoppingListNameDialog.kt$@ColorSchemePreview @Composable private fun ShoppingListNameDialogEditPreview()</ID>
+    <ID>UnusedPrivateMember:ShoppingListNameDialog.kt$@ColorSchemePreview @Composable private fun ShoppingListNameDialogNewPreview()</ID>
+    <ID>UnusedPrivateMember:ShoppingListsScreen.kt$@Composable @ColorSchemePreview private fun PreviewEditingShoppingListCard()</ID>
+    <ID>UnusedPrivateMember:ShoppingListsScreen.kt$@Composable @ColorSchemePreview private fun PreviewShoppingListCard()</ID>
+  </CurrentIssues>
+</SmellBaseline>

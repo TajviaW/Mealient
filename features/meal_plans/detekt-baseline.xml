@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>FunctionNaming:MealPlansScreen.kt$@Composable private fun MealPlanCard(mealPlan: GetMealPlanResponse)</ID>
+    <ID>FunctionNaming:MealPlansScreen.kt$@Destination @Composable fun MealPlansScreen( navController: NavController, baseScreenState: BaseScreenState, viewModel: MealPlansViewModel = hiltViewModel(), )</ID>
+    <ID>FunctionNaming:MealPlansScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable private fun MealPlansContent( modifier: Modifier = Modifier, mealPlans: List&lt;GetMealPlanResponse&gt;, startDate: String, endDate: String, isRefreshing: Boolean, onRefresh: () -&gt; Unit, )</ID>
+    <ID>LongMethod:MealPlansScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable private fun MealPlansContent( modifier: Modifier = Modifier, mealPlans: List&lt;GetMealPlanResponse&gt;, startDate: String, endDate: String, isRefreshing: Boolean, onRefresh: () -&gt; Unit, )</ID>
+    <ID>LongParameterList:MealPlansRepo.kt$MealPlansRepo$(id: String, date: String, entryType: String, recipeId: String?, title: String?, text: String?)</ID>
+    <ID>LongParameterList:MealPlansScreen.kt$( modifier: Modifier = Modifier, mealPlans: List&lt;GetMealPlanResponse&gt;, startDate: String, endDate: String, isRefreshing: Boolean, onRefresh: () -&gt; Unit, )</ID>
+    <ID>MagicNumber:MealPlansViewModel.kt$MealPlansViewModel$6</ID>
+    <ID>MaxLineLength:MealPlansRepo.kt$MealPlansRepo$suspend fun updateMealPlan(id: String, date: String, entryType: String, recipeId: String?, title: String?, text: String?)</ID>
+    <ID>PackageNaming:MealPlansDataSource.kt$package gq.kirmanak.mealient.meal_plans.network</ID>
+    <ID>PackageNaming:MealPlansDataSourceImpl.kt$package gq.kirmanak.mealient.meal_plans.network</ID>
+    <ID>PackageNaming:MealPlansModule.kt$package gq.kirmanak.mealient.meal_plans</ID>
+    <ID>PackageNaming:MealPlansRepo.kt$package gq.kirmanak.mealient.meal_plans.repo</ID>
+    <ID>PackageNaming:MealPlansRepoImpl.kt$package gq.kirmanak.mealient.meal_plans.repo</ID>
+    <ID>PackageNaming:MealPlansScreen.kt$package gq.kirmanak.mealient.meal_plans.ui</ID>
+    <ID>PackageNaming:MealPlansState.kt$package gq.kirmanak.mealient.meal_plans.ui</ID>
+    <ID>PackageNaming:MealPlansViewModel.kt$package gq.kirmanak.mealient.meal_plans.ui</ID>
+    <ID>TooGenericExceptionCaught:MealPlansViewModel.kt$MealPlansViewModel$e: Exception</ID>
+  </CurrentIssues>
+</SmellBaseline>
