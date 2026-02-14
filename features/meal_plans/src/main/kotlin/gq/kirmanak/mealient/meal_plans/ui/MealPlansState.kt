@@ -12,4 +12,5 @@ data class MealPlansState(
     val loadingState: MealPlansLoadingState = MealPlansLoadingState.Loading,
     val startDate: String = "",
     val endDate: String = "",
+    val isRefreshing: Boolean = false,
 )

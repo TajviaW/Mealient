@@ -54,7 +54,11 @@ class MealPlansViewModel @Inject constructor(
     }
 
     fun onRefresh() {
-        loadMealPlans()
+        viewModelScope.launch {
+            _state.value = _state.value.copy(isRefreshing = true)
+            loadMealPlans()
+            _state.value = _state.value.copy(isRefreshing = false)
+        }
     }
 
     fun onDeleteMealPlan(id: String) {

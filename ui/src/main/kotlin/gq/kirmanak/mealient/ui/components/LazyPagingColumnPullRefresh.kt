@@ -3,15 +3,14 @@ package gq.kirmanak.mealient.ui.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyListScope
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.pullrefresh.rememberPullRefreshState
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 
-@OptIn(ExperimentalMaterialApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun <T : Any> LazyPagingColumnPullRefresh(
     lazyPagingItems: LazyPagingItems<T>,
@@ -22,15 +21,10 @@ fun <T : Any> LazyPagingColumnPullRefresh(
 ) {
     val isRefreshing = lazyPagingItems.loadState.refresh is LoadState.Loading
 
-    val refreshState = rememberPullRefreshState(
-        refreshing = isRefreshing,
-        onRefresh = lazyPagingItems::refresh,
-    )
-
     LazyColumnPullRefresh(
         modifier = modifier,
-        refreshState = refreshState,
         isRefreshing = isRefreshing,
+        onRefresh = lazyPagingItems::refresh,
         contentPadding = contentPadding,
         verticalArrangement = verticalArrangement,
         lazyColumnContent = lazyColumnContent,
