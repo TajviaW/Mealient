@@ -35,6 +35,16 @@ class OidcAuthService @Inject constructor(
     /**
      * Creates an intent that launches Chrome Custom Tabs for OIDC authorization.
      *
+     * @param oidcRequest The OIDC authorization request containing the auth request
+     * @return Intent that can be launched to start the authorization flow
+     */
+    fun createAuthorizationIntent(oidcRequest: OidcAuthorizationRequest): Intent {
+        return authService.getAuthorizationRequestIntent(oidcRequest.authRequest)
+    }
+
+    /**
+     * Creates an intent that launches Chrome Custom Tabs for OIDC authorization.
+     *
      * @param authRequest The authorization request to launch
      * @return Intent that can be launched to start the authorization flow
      */
