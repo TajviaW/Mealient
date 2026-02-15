@@ -15,7 +15,7 @@ data class GetRecipeResponse(
 
 @Serializable
 data class GetRecipeSettingsResponse(
-    @SerialName("disableAmount") val disableAmount: Boolean,
+    @SerialName("disableAmount") val disableAmount: Boolean = false,
 )
 
 @Serializable

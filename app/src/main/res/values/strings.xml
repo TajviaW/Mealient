@@ -33,7 +33,10 @@
 	<string name="fragment_authentication_credentials_incorrect">E-mail or password is incorrect.</string>
 	<string name="fragment_authentication_unknown_error">Something went wrong, please try again.</string>
 	<string name="fragment_add_recipe_recipe_name">Recipe name</string>
+	<string name="fragment_add_recipe_recipe_url">Recipe URL</string>
+	<string name="fragment_add_recipe_import_from_url">Import from URL</string>
 	<string name="fragment_add_recipe_recipe_description">Description</string>
+	<string name="edit_recipe">Edit recipe</string>
 	<string name="menu_navigation_drawer_add_recipe">Add recipe</string>
 	<string name="menu_navigation_drawer_recipes_list">Recipes</string>
 	<string name="fragment_add_recipe_recipe_yield">Recipe yield</string>
@@ -87,4 +90,10 @@
 	<string name="activity_main_logout_confirmation_message">Are you sure you want to log yourself out?</string>
 	<string name="activity_main_logout_confirmation_positive">Log out</string>
 	<string name="activity_main_logout_confirmation_negative">Cancel</string>
+	<string name="add_to_shopping_list">Add to shopping list</string>
+	<string name="select_shopping_list">Select Shopping List</string>
+	<string name="select_shopping_list_message">Choose which shopping list to add ingredients to:</string>
+	<string name="add_ingredients">Add Ingredients</string>
+	<string name="ingredients_added_successfully">Ingredients added to shopping list</string>
+	<string name="failed_to_add_ingredients">Failed to add ingredients</string>
 </resources>

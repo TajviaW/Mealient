@@ -16,6 +16,8 @@ import gq.kirmanak.mealient.datasource.models.GetShoppingListsResponse
 import gq.kirmanak.mealient.datasource.models.GetTokenResponse
 import gq.kirmanak.mealient.datasource.models.GetUnitsResponse
 import gq.kirmanak.mealient.datasource.models.GetUserInfoResponse
+import gq.kirmanak.mealient.datasource.models.ParseIngredientRequest
+import gq.kirmanak.mealient.datasource.models.ParsedIngredientResponse
 import gq.kirmanak.mealient.datasource.models.ParseRecipeURLRequest
 import gq.kirmanak.mealient.datasource.models.UpdateMealPlanRequest
 import gq.kirmanak.mealient.datasource.models.UpdateRecipeRequest
@@ -40,6 +42,8 @@ internal interface MealieService {
     suspend fun getRecipe(slug: String): GetRecipeResponse
 
     suspend fun createRecipeFromURL(request: ParseRecipeURLRequest): String
+
+    suspend fun parseIngredient(request: ParseIngredientRequest): ParsedIngredientResponse
 
     suspend fun createApiToken(request: CreateApiTokenRequest): CreateApiTokenResponse
 

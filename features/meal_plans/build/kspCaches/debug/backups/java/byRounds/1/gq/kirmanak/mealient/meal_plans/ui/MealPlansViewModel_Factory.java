@@ -4,6 +4,7 @@ import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import dagger.internal.QualifierMetadata;
 import dagger.internal.ScopeMetadata;
+import gq.kirmanak.mealient.datasource.MealieDataSource;
 import gq.kirmanak.mealient.logging.Logger;
 import gq.kirmanak.mealient.meal_plans.repo.MealPlansRepo;
 import javax.annotation.processing.Generated;
@@ -27,25 +28,29 @@ import javax.inject.Provider;
 public final class MealPlansViewModel_Factory implements Factory<MealPlansViewModel> {
   private final Provider<MealPlansRepo> repoProvider;
 
+  private final Provider<MealieDataSource> mealieDataSourceProvider;
+
   private final Provider<Logger> loggerProvider;
 
   public MealPlansViewModel_Factory(Provider<MealPlansRepo> repoProvider,
-      Provider<Logger> loggerProvider) {
+      Provider<MealieDataSource> mealieDataSourceProvider, Provider<Logger> loggerProvider) {
     this.repoProvider = repoProvider;
+    this.mealieDataSourceProvider = mealieDataSourceProvider;
     this.loggerProvider = loggerProvider;
   }
 
   @Override
   public MealPlansViewModel get() {
-    return newInstance(repoProvider.get(), loggerProvider.get());
+    return newInstance(repoProvider.get(), mealieDataSourceProvider.get(), loggerProvider.get());
   }
 
   public static MealPlansViewModel_Factory create(Provider<MealPlansRepo> repoProvider,
-      Provider<Logger> loggerProvider) {
-    return new MealPlansViewModel_Factory(repoProvider, loggerProvider);
+      Provider<MealieDataSource> mealieDataSourceProvider, Provider<Logger> loggerProvider) {
+    return new MealPlansViewModel_Factory(repoProvider, mealieDataSourceProvider, loggerProvider);
   }
 
-  public static MealPlansViewModel newInstance(MealPlansRepo repo, Logger logger) {
-    return new MealPlansViewModel(repo, logger);
+  public static MealPlansViewModel newInstance(MealPlansRepo repo,
+      MealieDataSource mealieDataSource, Logger logger) {
+    return new MealPlansViewModel(repo, mealieDataSource, logger);
   }
 }

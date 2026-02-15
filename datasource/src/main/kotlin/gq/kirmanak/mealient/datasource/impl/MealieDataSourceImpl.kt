@@ -21,6 +21,8 @@ import gq.kirmanak.mealient.datasource.models.GetShoppingListResponse
 import gq.kirmanak.mealient.datasource.models.GetShoppingListsResponse
 import gq.kirmanak.mealient.datasource.models.GetUnitsResponse
 import gq.kirmanak.mealient.datasource.models.GetUserInfoResponse
+import gq.kirmanak.mealient.datasource.models.ParseIngredientRequest
+import gq.kirmanak.mealient.datasource.models.ParsedIngredientResponse
 import gq.kirmanak.mealient.datasource.models.ParseRecipeURLRequest
 import gq.kirmanak.mealient.datasource.models.UpdateMealPlanRequest
 import gq.kirmanak.mealient.datasource.models.UpdateRecipeRequest
@@ -105,6 +107,14 @@ internal class MealieDataSourceImpl @Inject constructor(
     ): String = networkRequestWrapper.makeCallAndHandleUnauthorized(
         block = { service.createRecipeFromURL(request) },
         logMethod = { "parseRecipeFromURL" },
+        logParameters = { "request = $request" }
+    )
+
+    override suspend fun parseIngredient(
+        request: ParseIngredientRequest,
+    ): ParsedIngredientResponse = networkRequestWrapper.makeCallAndHandleUnauthorized(
+        block = { service.parseIngredient(request) },
+        logMethod = { "parseIngredient" },
         logParameters = { "request = $request" }
     )
 

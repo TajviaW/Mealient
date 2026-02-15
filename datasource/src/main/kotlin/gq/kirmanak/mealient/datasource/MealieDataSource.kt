@@ -16,6 +16,8 @@ import gq.kirmanak.mealient.datasource.models.GetShoppingListResponse
 import gq.kirmanak.mealient.datasource.models.GetShoppingListsResponse
 import gq.kirmanak.mealient.datasource.models.GetUnitsResponse
 import gq.kirmanak.mealient.datasource.models.GetUserInfoResponse
+import gq.kirmanak.mealient.datasource.models.ParseIngredientRequest
+import gq.kirmanak.mealient.datasource.models.ParsedIngredientResponse
 import gq.kirmanak.mealient.datasource.models.ParseRecipeURLRequest
 import gq.kirmanak.mealient.datasource.models.UpdateMealPlanRequest
 import gq.kirmanak.mealient.datasource.models.UpdateRecipeRequest
@@ -54,6 +56,10 @@ interface MealieDataSource {
     suspend fun parseRecipeFromURL(
         request: ParseRecipeURLRequest,
     ): String
+
+    suspend fun parseIngredient(
+        request: ParseIngredientRequest,
+    ): ParsedIngredientResponse
 
     suspend fun createApiToken(
         request: CreateApiTokenRequest,

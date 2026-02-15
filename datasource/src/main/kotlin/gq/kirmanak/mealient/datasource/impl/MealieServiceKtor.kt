@@ -18,6 +18,8 @@ import gq.kirmanak.mealient.datasource.models.GetShoppingListsResponse
 import gq.kirmanak.mealient.datasource.models.GetTokenResponse
 import gq.kirmanak.mealient.datasource.models.GetUnitsResponse
 import gq.kirmanak.mealient.datasource.models.GetUserInfoResponse
+import gq.kirmanak.mealient.datasource.models.ParseIngredientRequest
+import gq.kirmanak.mealient.datasource.models.ParsedIngredientResponse
 import gq.kirmanak.mealient.datasource.models.ParseRecipeURLRequest
 import gq.kirmanak.mealient.datasource.models.UpdateMealPlanRequest
 import gq.kirmanak.mealient.datasource.models.UpdateRecipeRequest
@@ -104,7 +106,15 @@ internal class MealieServiceKtor @Inject constructor(
 
     override suspend fun createRecipeFromURL(request: ParseRecipeURLRequest): String {
         return httpClient.post {
-            endpoint("/api/recipes/create-url")
+            endpoint("/api/recipes/create/url")
+            contentType(ContentType.Application.Json)
+            setBody(request)
+        }.body()
+    }
+
+    override suspend fun parseIngredient(request: ParseIngredientRequest): ParsedIngredientResponse {
+        return httpClient.post {
+            endpoint("/api/parser/ingredient")
             contentType(ContentType.Application.Json)
             setBody(request)
         }.body()

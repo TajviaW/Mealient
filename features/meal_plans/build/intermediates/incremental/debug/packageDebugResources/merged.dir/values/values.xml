@@ -6,11 +6,13 @@
     <string name="meal_plans_action_next_week">Next week</string>
     <string name="meal_plans_action_previous_week">Previous week</string>
     <string name="meal_plans_action_refresh">Refresh</string>
+    <string name="meal_plans_add_meal_plan">Add meal plan</string>
     <string name="meal_plans_content_desc_add_button">Add meal plan</string>
     <string name="meal_plans_content_desc_calendar_icon">Calendar</string>
     <string name="meal_plans_content_desc_next_week">Next week</string>
     <string name="meal_plans_content_desc_previous_week">Previous week</string>
     <string name="meal_plans_date_range_format">Week of %1$s to %2$s</string>
+    <string name="meal_plans_delete_meal_plan">Delete meal plan</string>
     <string name="meal_plans_dialog_button_cancel">Cancel</string>
     <string name="meal_plans_dialog_button_create">Create</string>
     <string name="meal_plans_dialog_button_delete">Delete</string>

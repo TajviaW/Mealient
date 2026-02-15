@@ -13,6 +13,8 @@
     <string name="meal_plans_action_refresh">Refresh</string>
     <string name="meal_plans_action_previous_week">Previous week</string>
     <string name="meal_plans_action_next_week">Next week</string>
+    <string name="meal_plans_add_meal_plan">Add meal plan</string>
+    <string name="meal_plans_delete_meal_plan">Delete meal plan</string>
 
     <!-- Meal types -->
     <string name="meal_plans_type_breakfast">Breakfast</string>

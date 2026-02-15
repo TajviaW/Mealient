@@ -2,6 +2,12 @@ package gq.kirmanak.mealient.ui.add
 
 internal sealed interface AddRecipeScreenEvent {
 
+    data class RecipeUrlInput(
+        val input: String,
+    ) : AddRecipeScreenEvent
+
+    data object ImportFromUrlClick : AddRecipeScreenEvent
+
     data class RecipeNameInput(
         val input: String,
     ) : AddRecipeScreenEvent

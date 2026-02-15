@@ -103,6 +103,28 @@ private fun AddRecipeScreenContent(
     ) {
         item {
             AddRecipeInputField(
+                input = state.recipeUrlInput,
+                label = stringResource(id = R.string.fragment_add_recipe_recipe_url),
+                isLast = false,
+                onValueChange = { onEvent(AddRecipeScreenEvent.RecipeUrlInput(it)) },
+            )
+        }
+
+        item {
+            Button(
+                enabled = state.importButtonEnabled,
+                onClick = {
+                    onEvent(AddRecipeScreenEvent.ImportFromUrlClick)
+                },
+            ) {
+                Text(
+                    text = stringResource(id = R.string.fragment_add_recipe_import_from_url),
+                )
+            }
+        }
+
+        item {
+            AddRecipeInputField(
                 input = state.recipeNameInput,
                 label = stringResource(id = R.string.fragment_add_recipe_recipe_name),
                 isLast = false,

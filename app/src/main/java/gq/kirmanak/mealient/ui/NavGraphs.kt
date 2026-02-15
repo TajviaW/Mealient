@@ -10,6 +10,7 @@ import gq.kirmanak.mealient.ui.destinations.AddRecipeScreenDestination
 import gq.kirmanak.mealient.ui.destinations.AuthenticationScreenDestination
 import gq.kirmanak.mealient.ui.destinations.BaseURLScreenDestination
 import gq.kirmanak.mealient.ui.destinations.DisclaimerScreenDestination
+import gq.kirmanak.mealient.ui.destinations.EditRecipeScreenDestination
 import gq.kirmanak.mealient.ui.destinations.RecipeScreenDestination
 import gq.kirmanak.mealient.ui.destinations.RecipesListDestination
 
@@ -21,6 +22,7 @@ internal object NavGraphs {
         destinations = listOf(
             RecipesListDestination,
             RecipeScreenDestination,
+            EditRecipeScreenDestination,
         ),
     )
 

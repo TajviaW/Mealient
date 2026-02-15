@@ -12,6 +12,7 @@ import gq.kirmanak.mealient.data.auth.oidc.OidcAuthRepo
 import gq.kirmanak.mealient.data.auth.oidc.OidcAuthorizationRequest
 import gq.kirmanak.mealient.data.auth.oidc.OidcAuthService
 import gq.kirmanak.mealient.data.auth.oidc.OidcAuthState
+import gq.kirmanak.mealient.data.baseurl.ServerInfoRepo
 import gq.kirmanak.mealient.datasource.NetworkError
 import gq.kirmanak.mealient.datasource.runCatchingExceptCancel
 import gq.kirmanak.mealient.logging.Logger
@@ -29,16 +30,31 @@ internal class AuthenticationViewModel @Inject constructor(
     private val authStorage: AuthStorage,
     private val oidcAuthRepo: OidcAuthRepo,
     private val oidcAuthService: OidcAuthService,
+    private val serverInfoRepo: ServerInfoRepo,
     private val logger: Logger,
 ) : ViewModel() {
 
     private val _screenState = MutableStateFlow(AuthenticationScreenState())
     val screenState = _screenState.asStateFlow()
 
+    private var discoveryTriggered = false
+
     init {
         // Observe OIDC availability
         viewModelScope.launch {
             oidcAuthRepo.oidcAuthState.collect { state ->
+                logger.d { "OIDC state changed: $state" }
+
+                // Trigger discovery once if needed
+                if (!discoveryTriggered && state is OidcAuthState.NotConfigured) {
+                    val baseUrl = serverInfoRepo.getUrl()
+                    if (baseUrl != null) {
+                        discoveryTriggered = true
+                        logger.v { "Triggering OIDC discovery for $baseUrl" }
+                        launch { oidcAuthRepo.discoverOidcConfig(baseUrl) }
+                    }
+                }
+
                 _screenState.update {
                     when (state) {
                         is OidcAuthState.Configured -> it.copy(

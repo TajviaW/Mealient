@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest8960759605192192349.xml:2:13-83
-INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest8960759605192192349.xml:2:13-83
+ADDED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15258747861637361821.xml:2:13-83
+INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15258747861637361821.xml:2:13-83
 	package
-		INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest8960759605192192349.xml
+		INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15258747861637361821.xml
 	xmlns:android
-		ADDED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest8960759605192192349.xml:2:23-81
+		ADDED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15258747861637361821.xml:2:23-81
 uses-sdk
-INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest8960759605192192349.xml reason: use-sdk injection requested
-INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest8960759605192192349.xml
-INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest8960759605192192349.xml
+INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15258747861637361821.xml reason: use-sdk injection requested
+INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15258747861637361821.xml
+INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15258747861637361821.xml
 	android:targetSdkVersion
-		INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest8960759605192192349.xml
+		INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15258747861637361821.xml
 	android:minSdkVersion
-		INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest8960759605192192349.xml
+		INJECTED from /home/tajviaw/Projects/Mealient/features/meal_plans/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest15258747861637361821.xml

@@ -12,5 +12,5 @@ data class GetUnitsResponse(
 data class GetUnitResponse(
     @SerialName("name") val name: String,
     @SerialName("pluralName") val pluralName: String? = null,
-    @SerialName("id") val id: String
+    @SerialName("id") val id: String? = null
 )

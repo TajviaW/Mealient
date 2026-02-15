@@ -11,6 +11,6 @@ data class GetFoodsResponse(
 @Serializable
 data class GetFoodResponse(
     @SerialName("name") val name: String,
-    @SerialName("id") val id: String,
+    @SerialName("id") val id: String? = null,
     @SerialName("pluralName") val pluralName: String? = null
 )

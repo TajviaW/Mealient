@@ -1,10 +1,12 @@
 package gq.kirmanak.mealient.ui.add
 
 import androidx.annotation.VisibleForTesting
+import androidx.core.util.PatternsCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import gq.kirmanak.mealient.data.add.AddRecipeRepo
+import gq.kirmanak.mealient.data.share.ShareRecipeRepo
 import gq.kirmanak.mealient.datasource.models.AddRecipeInfo
 import gq.kirmanak.mealient.datasource.models.AddRecipeIngredientInfo
 import gq.kirmanak.mealient.datasource.models.AddRecipeInstructionInfo
@@ -22,6 +24,7 @@ import javax.inject.Inject
 @HiltViewModel
 internal class AddRecipeViewModel @Inject constructor(
     private val addRecipeRepo: AddRecipeRepo,
+    private val shareRecipeRepo: ShareRecipeRepo,
     private val logger: Logger,
 ) : ViewModel() {
 
@@ -54,6 +57,21 @@ internal class AddRecipeViewModel @Inject constructor(
     fun onEvent(event: AddRecipeScreenEvent) {
         logger.v { "onEvent() called with: event = $event" }
         when (event) {
+            is AddRecipeScreenEvent.RecipeUrlInput -> {
+                val isUrlValid = event.input.isNotBlank() &&
+                    PatternsCompat.WEB_URL.matcher(event.input).matches()
+                _screenState.update {
+                    it.copy(
+                        recipeUrlInput = event.input,
+                        importButtonEnabled = isUrlValid,
+                    )
+                }
+            }
+
+            is AddRecipeScreenEvent.ImportFromUrlClick -> {
+                importRecipeFromUrl()
+            }
+
             is AddRecipeScreenEvent.AddIngredientClick -> {
                 _screenState.update {
                     it.copy(ingredients = it.ingredients + "")
@@ -85,6 +103,12 @@ internal class AddRecipeViewModel @Inject constructor(
                 viewModelScope.launch {
                     addRecipeRepo.clear()
                     doLoadPreservedRequest()
+                    _screenState.update {
+                        it.copy(
+                            recipeUrlInput = "",
+                            importButtonEnabled = false,
+                        )
+                    }
                 }
             }
 
@@ -174,6 +198,38 @@ internal class AddRecipeViewModel @Inject constructor(
             _screenState.update {
                 it.copy(
                     isLoading = false,
+                    saveButtonEnabled = true,
+                    clearButtonEnabled = true,
+                    snackbarMessage = if (isSuccessful) {
+                        AddRecipeSnackbarMessage.Success
+                    } else {
+                        AddRecipeSnackbarMessage.Error
+                    }
+                )
+            }
+        }
+    }
+
+    private fun importRecipeFromUrl() {
+        logger.v { "importRecipeFromUrl() called" }
+        val url = screenState.value.recipeUrlInput
+        _screenState.update {
+            it.copy(
+                isLoading = true,
+                importButtonEnabled = false,
+                saveButtonEnabled = false,
+                clearButtonEnabled = false,
+            )
+        }
+        viewModelScope.launch {
+            val isSuccessful = runCatchingExceptCancel {
+                shareRecipeRepo.saveRecipeByURL(url)
+            }.isSuccess
+            _screenState.update {
+                it.copy(
+                    isLoading = false,
+                    recipeUrlInput = if (isSuccessful) "" else url,
+                    importButtonEnabled = if (isSuccessful) false else url.isNotBlank(),
                     saveButtonEnabled = true,
                     clearButtonEnabled = true,
                     snackbarMessage = if (isSuccessful) {

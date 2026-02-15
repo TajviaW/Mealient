@@ -3,6 +3,8 @@ package gq.kirmanak.mealient.ui.add
 internal data class AddRecipeScreenState(
     val snackbarMessage: AddRecipeSnackbarMessage? = null,
     val isLoading: Boolean = false,
+    val recipeUrlInput: String = "",
+    val importButtonEnabled: Boolean = false,
     val recipeNameInput: String = "",
     val recipeDescriptionInput: String = "",
     val recipeYieldInput: String = "",

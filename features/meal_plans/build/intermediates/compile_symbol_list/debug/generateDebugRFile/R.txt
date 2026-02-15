@@ -4194,11 +4194,13 @@ int string meal_plans_action_edit 0x0
 int string meal_plans_action_next_week 0x0
 int string meal_plans_action_previous_week 0x0
 int string meal_plans_action_refresh 0x0
+int string meal_plans_add_meal_plan 0x0
 int string meal_plans_content_desc_add_button 0x0
 int string meal_plans_content_desc_calendar_icon 0x0
 int string meal_plans_content_desc_next_week 0x0
 int string meal_plans_content_desc_previous_week 0x0
 int string meal_plans_date_range_format 0x0
+int string meal_plans_delete_meal_plan 0x0
 int string meal_plans_dialog_button_cancel 0x0
 int string meal_plans_dialog_button_create 0x0
 int string meal_plans_dialog_button_delete 0x0
