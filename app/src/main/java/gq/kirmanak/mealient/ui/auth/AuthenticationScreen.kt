@@ -76,11 +76,13 @@ internal fun AuthenticationScreen(
             onEvent = { event ->
                 // Intercept SSO login click for web-based OIDC
                 if (event is AuthenticationScreenEvent.OnSsoLoginClick &&
-                    screenState.webBasedOidc &&
-                    screenState.baseUrl != null) {
+                    screenState.webBasedOidc) {
                     // Launch web-based authentication
-                    val intent = OidcWebAuthActivity.createIntent(context, screenState.baseUrl)
-                    webAuthLauncher.launch(intent)
+                    val baseUrl = screenState.baseUrl
+                    if (baseUrl != null) {
+                        val intent = OidcWebAuthActivity.createIntent(context, baseUrl)
+                        webAuthLauncher.launch(intent)
+                    }
                 } else {
                     viewModel.onEvent(event)
                 }

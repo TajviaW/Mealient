@@ -33,7 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import dagger.hilt.android.AndroidEntryPoint
 import gq.kirmanak.mealient.logging.Logger
-import gq.kirmanak.mealient.ui.theme.MealientTheme
+import gq.kirmanak.mealient.ui.AppTheme
 import javax.inject.Inject
 
 /**
@@ -47,8 +47,6 @@ class OidcWebAuthActivity : ComponentActivity() {
     lateinit var logger: Logger
 
     private var webView: WebView? = null
-    private var isLoading by mutableStateOf(true)
-    private var loadProgress by mutableStateOf(0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,14 +61,22 @@ class OidcWebAuthActivity : ComponentActivity() {
         }
 
         setContent {
-            MealientTheme {
+            var isLoading by remember { mutableStateOf(true) }
+            var loadProgress by remember { mutableStateOf(0) }
+
+            AppTheme {
                 OidcWebAuthScreen(
                     baseUrl = baseUrl,
                     isLoading = isLoading,
                     loadProgress = loadProgress,
                     onWebViewCreated = { webView ->
                         this.webView = webView
-                        setupWebView(webView, baseUrl)
+                        setupWebView(webView, baseUrl) {
+                            isLoading = it
+                        }
+                    },
+                    onProgressChanged = { progress ->
+                        loadProgress = progress
                     }
                 )
             }
@@ -78,7 +84,7 @@ class OidcWebAuthActivity : ComponentActivity() {
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    private fun setupWebView(webView: WebView, baseUrl: String) {
+    private fun setupWebView(webView: WebView, baseUrl: String, onLoadingChanged: (Boolean) -> Unit) {
         logger.v { "Setting up WebView for $baseUrl" }
 
         // Enable JavaScript (required for modern web apps)
@@ -101,25 +107,19 @@ class OidcWebAuthActivity : ComponentActivity() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: android.graphics.Bitmap?) {
                 super.onPageStarted(view, url, favicon)
                 logger.v { "Page loading: $url" }
-                isLoading = true
+                onLoadingChanged(true)
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 logger.v { "Page loaded: $url" }
-                isLoading = false
+                onLoadingChanged(false)
 
                 // After page loads, try to extract token
                 if (url?.contains(baseUrl) == true && !url.contains("/login")) {
                     // User is logged in, try to extract the token
                     extractToken(view)
                 }
-            }
-
-            override fun onLoadResource(view: WebView?, url: String?) {
-                super.onLoadResource(view, url)
-                // Update progress
-                loadProgress = view?.progress ?: 0
             }
         }
 
@@ -238,7 +238,8 @@ private fun OidcWebAuthScreen(
     baseUrl: String,
     isLoading: Boolean,
     loadProgress: Int,
-    onWebViewCreated: (WebView) -> Unit
+    onWebViewCreated: (WebView) -> Unit,
+    onProgressChanged: (Int) -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -255,7 +256,7 @@ private fun OidcWebAuthScreen(
             // Show loading progress
             if (isLoading && loadProgress > 0) {
                 LinearProgressIndicator(
-                    progress = loadProgress / 100f,
+                    progress = { loadProgress / 100f },
                     modifier = Modifier.fillMaxWidth()
                 )
             }

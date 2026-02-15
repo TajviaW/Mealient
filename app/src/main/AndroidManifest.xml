@@ -52,7 +52,7 @@
         <activity
             android:name=".ui.auth.OidcWebAuthActivity"
             android:exported="false"
-            android:theme="@style/Theme.App" />
+            android:theme="@style/Theme.App.Starting" />
 
         <!-- OAuth redirect receiver for OIDC authentication -->
         <activity
