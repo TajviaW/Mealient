@@ -48,6 +48,12 @@
             android:exported="false"
             android:launchMode="singleTop" />
 
+        <!-- WebView-based OIDC authentication for Mealie v3 -->
+        <activity
+            android:name=".ui.auth.OidcWebAuthActivity"
+            android:exported="false"
+            android:theme="@style/Theme.App" />
+
         <!-- OAuth redirect receiver for OIDC authentication -->
         <activity
             android:name="net.openid.appauth.RedirectUriReceiverActivity"

@@ -1,5 +1,8 @@
 package gq.kirmanak.mealient.ui.auth
 
+import android.app.Activity
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -20,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.autofill.AutofillType
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
@@ -41,6 +45,23 @@ internal fun AuthenticationScreen(
     viewModel: AuthenticationViewModel = hiltViewModel(),
 ) {
     val screenState by viewModel.screenState.collectAsState()
+    val context = LocalContext.current
+
+    // Activity launcher for web-based OIDC authentication
+    val webAuthLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val token = OidcWebAuthActivity.getTokenFromResult(result.data)
+            if (token != null) {
+                viewModel.onWebAuthComplete(token)
+            } else {
+                viewModel.onWebAuthFailed("No token received from authentication")
+            }
+        } else {
+            viewModel.onWebAuthFailed("Authentication cancelled")
+        }
+    }
 
     LaunchedEffect(screenState.isSuccessful) {
         if (screenState.isSuccessful) {
@@ -52,7 +73,18 @@ internal fun AuthenticationScreen(
         AuthenticationScreen(
             modifier = modifier,
             state = screenState,
-            onEvent = viewModel::onEvent,
+            onEvent = { event ->
+                // Intercept SSO login click for web-based OIDC
+                if (event is AuthenticationScreenEvent.OnSsoLoginClick &&
+                    screenState.webBasedOidc &&
+                    screenState.baseUrl != null) {
+                    // Launch web-based authentication
+                    val intent = OidcWebAuthActivity.createIntent(context, screenState.baseUrl)
+                    webAuthLauncher.launch(intent)
+                } else {
+                    viewModel.onEvent(event)
+                }
+            },
         )
     }
 }

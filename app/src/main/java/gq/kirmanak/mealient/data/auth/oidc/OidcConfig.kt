@@ -39,6 +39,14 @@ sealed class OidcAuthState {
     data class Configured(val config: OidcConfig) : OidcAuthState()
 
     /**
+     * Server uses web-based OIDC (Mealie v3 style) without exposing discovery endpoint.
+     * The app should open the web login page to authenticate.
+     *
+     * @property baseUrl The base URL of the Mealie server
+     */
+    data class WebBased(val baseUrl: String) : OidcAuthState()
+
+    /**
      * OIDC configuration discovery failed
      */
     data class Failed(val error: String) : OidcAuthState()

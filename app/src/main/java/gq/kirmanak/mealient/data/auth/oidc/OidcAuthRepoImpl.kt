@@ -1,6 +1,7 @@
 package gq.kirmanak.mealient.data.auth.oidc
 
 import android.net.Uri
+import gq.kirmanak.mealient.data.baseurl.VersionDataSource
 import gq.kirmanak.mealient.datasource.oidc.OidcDiscoveryDataSource
 import gq.kirmanak.mealient.logging.Logger
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,6 +20,7 @@ import javax.inject.Singleton
 @Singleton
 class OidcAuthRepoImpl @Inject constructor(
     private val oidcDiscoveryDataSource: OidcDiscoveryDataSource,
+    private val versionDataSource: VersionDataSource,
     private val logger: Logger,
 ) : OidcAuthRepo {
 
@@ -34,6 +36,16 @@ class OidcAuthRepoImpl @Inject constructor(
         return try {
             val enabled = oidcDiscoveryDataSource.checkOidcEnabled(baseUrl)
             if (!enabled) {
+                logger.v { "Standard OIDC discovery not available, checking server info" }
+
+                // Check if server uses web-based OIDC (Mealie v3 style)
+                val webBasedOidc = checkWebBasedOidc(baseUrl)
+                if (webBasedOidc) {
+                    logger.v { "Server uses web-based OIDC" }
+                    _oidcAuthState.value = OidcAuthState.WebBased(baseUrl)
+                    return Result.failure(Exception("Server uses web-based OIDC"))
+                }
+
                 logger.v { "OIDC not enabled on server" }
                 _oidcAuthState.value = OidcAuthState.NotConfigured
                 return Result.failure(Exception("OIDC not enabled on this server"))
@@ -52,8 +64,34 @@ class OidcAuthRepoImpl @Inject constructor(
             Result.success(config)
         } catch (e: Exception) {
             logger.e(e) { "Failed to discover OIDC configuration" }
+
+            // Check if server uses web-based OIDC even when discovery fails
+            val webBasedOidc = checkWebBasedOidc(baseUrl)
+            if (webBasedOidc) {
+                logger.v { "Server uses web-based OIDC (detected after failure)" }
+                _oidcAuthState.value = OidcAuthState.WebBased(baseUrl)
+                return Result.failure(Exception("Server uses web-based OIDC"))
+            }
+
             _oidcAuthState.value = OidcAuthState.Failed(e.message ?: "Unknown error")
             Result.failure(e)
+        }
+    }
+
+    /**
+     * Checks if the server uses web-based OIDC (like Mealie v3).
+     * Returns true if enableOidc=true and oidcRedirect=true.
+     */
+    private suspend fun checkWebBasedOidc(baseUrl: String): Boolean {
+        return try {
+            val serverInfo = versionDataSource.requestVersion(baseUrl)
+            val enableOidc = serverInfo.enableOidc ?: false
+            val oidcRedirect = serverInfo.oidcRedirect ?: false
+            logger.v { "Server info: enableOidc=$enableOidc, oidcRedirect=$oidcRedirect" }
+            enableOidc && oidcRedirect
+        } catch (e: Exception) {
+            logger.e(e) { "Failed to check server info for web-based OIDC" }
+            false
         }
     }
 

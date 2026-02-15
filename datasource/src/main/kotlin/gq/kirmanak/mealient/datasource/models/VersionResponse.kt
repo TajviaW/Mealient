@@ -9,4 +9,8 @@ data class VersionResponse(
     @SerialName("production") val production: Boolean? = null,
     @SerialName("demoStatus") val demoStatus: Boolean? = null,
     @SerialName("allowSignup") val allowSignup: Boolean? = null,
+    @SerialName("allowPasswordLogin") val allowPasswordLogin: Boolean? = null,
+    @SerialName("enableOidc") val enableOidc: Boolean? = null,
+    @SerialName("oidcRedirect") val oidcRedirect: Boolean? = null,
+    @SerialName("oidcProviderName") val oidcProviderName: String? = null,
 )

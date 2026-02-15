@@ -10,4 +10,6 @@ internal data class AuthenticationScreenState(
     val isPasswordVisible: Boolean = false,
     val oidcAvailable: Boolean = false,
     val showPasswordFields: Boolean = true,
+    val webBasedOidc: Boolean = false,
+    val baseUrl: String? = null,
 )

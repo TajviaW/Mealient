@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import gq.kirmanak.mealient.R
 import gq.kirmanak.mealient.data.auth.AuthRepo
+import gq.kirmanak.mealient.data.auth.AuthStorage
 import gq.kirmanak.mealient.data.auth.oidc.OidcAuthRepo
 import gq.kirmanak.mealient.data.auth.oidc.OidcAuthorizationRequest
 import gq.kirmanak.mealient.data.auth.oidc.OidcAuthService
@@ -25,6 +26,7 @@ import javax.inject.Inject
 internal class AuthenticationViewModel @Inject constructor(
     private val application: Application,
     private val authRepo: AuthRepo,
+    private val authStorage: AuthStorage,
     private val oidcAuthRepo: OidcAuthRepo,
     private val oidcAuthService: OidcAuthService,
     private val logger: Logger,
@@ -38,7 +40,22 @@ internal class AuthenticationViewModel @Inject constructor(
         viewModelScope.launch {
             oidcAuthRepo.oidcAuthState.collect { state ->
                 _screenState.update {
-                    it.copy(oidcAvailable = state is OidcAuthState.Configured)
+                    when (state) {
+                        is OidcAuthState.Configured -> it.copy(
+                            oidcAvailable = true,
+                            webBasedOidc = false
+                        )
+                        is OidcAuthState.WebBased -> it.copy(
+                            oidcAvailable = true,
+                            webBasedOidc = true,
+                            baseUrl = state.baseUrl
+                        )
+                        else -> it.copy(
+                            oidcAvailable = false,
+                            webBasedOidc = false,
+                            baseUrl = null
+                        )
+                    }
                 }
             }
         }
@@ -174,6 +191,55 @@ internal class AuthenticationViewModel @Inject constructor(
         logger.v { "onShowPasswordLogin" }
         _screenState.update {
             it.copy(showPasswordFields = true)
+        }
+    }
+
+    /**
+     * Called when web-based authentication completes successfully with a token.
+     * Stores the token and marks authentication as successful.
+     */
+    fun onWebAuthComplete(token: String) {
+        logger.v { "onWebAuthComplete: token received" }
+        viewModelScope.launch {
+            try {
+                // Store the token as OIDC authentication
+                // We don't have refresh/ID tokens from web-based flow
+                authStorage.setOidcTokens(
+                    accessToken = token,
+                    refreshToken = null,
+                    idToken = null
+                )
+                authStorage.setAuthToken(token)
+
+                _screenState.update {
+                    it.copy(
+                        isLoading = false,
+                        isSuccessful = true,
+                        errorText = null
+                    )
+                }
+            } catch (e: Exception) {
+                logger.e(e) { "Failed to store web auth token" }
+                _screenState.update {
+                    it.copy(
+                        isLoading = false,
+                        errorText = e.message ?: "Failed to complete authentication"
+                    )
+                }
+            }
+        }
+    }
+
+    /**
+     * Called when web-based authentication fails or is cancelled.
+     */
+    fun onWebAuthFailed(error: String? = null) {
+        logger.v { "onWebAuthFailed: $error" }
+        _screenState.update {
+            it.copy(
+                isLoading = false,
+                errorText = error ?: application.getString(R.string.fragment_authentication_sso_error)
+            )
         }
     }
 
