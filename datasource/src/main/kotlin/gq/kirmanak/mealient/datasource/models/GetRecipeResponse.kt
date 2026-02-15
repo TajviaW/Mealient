@@ -27,8 +27,8 @@ data class GetRecipeIngredientResponse(
     @SerialName("display") val display: String,
     @SerialName("referenceId") val referenceId: String,
     @SerialName("title") val title: String?,
-    @SerialName("isFood") val isFood: Boolean,
-    @SerialName("disableAmount") val disableAmount: Boolean,
+    @SerialName("isFood") val isFood: Boolean = false,
+    @SerialName("disableAmount") val disableAmount: Boolean = false,
 )
 
 @Serializable
