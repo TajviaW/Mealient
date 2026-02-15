@@ -142,7 +142,7 @@ internal class AuthenticationViewModel @Inject constructor(
             )
         }
         viewModelScope.launch {
-            val result = runCatchingExceptCancel {
+            val result: Result<OidcAuthorizationRequest> = runCatchingExceptCancel {
                 oidcAuthRepo.startOidcFlow()
             }
 
