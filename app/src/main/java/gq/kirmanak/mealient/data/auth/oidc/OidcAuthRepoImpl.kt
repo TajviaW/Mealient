@@ -17,7 +17,7 @@ import javax.inject.Singleton
  * Implementation of OidcAuthRepo using AppAuth library.
  */
 @Singleton
-internal class OidcAuthRepoImpl @Inject constructor(
+class OidcAuthRepoImpl @Inject constructor(
     private val oidcDiscoveryDataSource: OidcDiscoveryDataSource,
     private val logger: Logger,
 ) : OidcAuthRepo {

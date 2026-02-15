@@ -14,7 +14,7 @@ import kotlin.coroutines.resume
  * Implementation of OidcTokenExchange using AppAuth library.
  */
 @Singleton
-internal class OidcTokenExchangeImpl @Inject constructor(
+class OidcTokenExchangeImpl @Inject constructor(
     private val authService: AuthorizationService,
     private val logger: Logger,
 ) : OidcTokenExchange {

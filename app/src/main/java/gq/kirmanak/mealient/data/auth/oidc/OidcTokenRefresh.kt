@@ -21,7 +21,7 @@ interface OidcTokenRefresh {
  * Implementation of OidcTokenRefresh.
  */
 @Singleton
-internal class OidcTokenRefreshImpl @Inject constructor(
+class OidcTokenRefreshImpl @Inject constructor(
     private val authStorage: AuthStorage,
     private val oidcAuthRepo: OidcAuthRepo,
     private val oidcTokenExchange: OidcTokenExchange,
