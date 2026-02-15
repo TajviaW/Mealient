@@ -1,5 +1,7 @@
 package gq.kirmanak.mealient.data.auth.oidc
 
+import net.openid.appauth.AuthorizationRequest
+
 /**
  * OIDC configuration discovered from the server's .well-known/openid-configuration endpoint.
  *
@@ -54,7 +56,7 @@ data class OidcAuthorizationRequest(
     val authorizationUrl: String,
     val state: String,
     val codeVerifier: String,
-    val authRequest: net.openid.appauth.AuthorizationRequest,
+    val authRequest: AuthorizationRequest,
 )
 
 /**
