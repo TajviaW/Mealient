@@ -117,8 +117,8 @@ fun MealPlansScreen(
                 onDismiss = viewModel::onDismissOptionsDialog,
                 onEdit = viewModel::onEditFromOptions,
                 onViewRecipe = {
-                    selectedMealPlan.recipe?.slug?.let { slug ->
-                        navController.navigate("recipe_screen/$slug")
+                    selectedMealPlan.recipeId?.let { recipeId ->
+                        navController.navigate("recipe_screen/$recipeId")
                     }
                     viewModel.onDismissOptionsDialog()
                 }
