@@ -12,12 +12,14 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.rememberDrawerState
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -32,7 +34,9 @@ import com.ramcosta.composedestinations.navigation.navigate
 import gq.kirmanak.mealient.R
 import gq.kirmanak.mealient.ui.AppTheme
 import gq.kirmanak.mealient.ui.Dimens
-import gq.kirmanak.mealient.ui.components.BaseScreen
+import gq.kirmanak.mealient.ui.components.BaseScreenState
+import gq.kirmanak.mealient.ui.components.BaseScreenWithNavigation
+import gq.kirmanak.mealient.ui.components.OpenDrawerIconButton
 import gq.kirmanak.mealient.ui.destinations.EditRecipeScreenDestination
 import gq.kirmanak.mealient.ui.preview.ColorSchemePreview
 
@@ -46,14 +50,19 @@ data class RecipeScreenArgs(
 @Composable
 internal fun RecipeScreen(
     navController: NavController,
+    baseScreenState: BaseScreenState,
     viewModel: RecipeInfoViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsState()
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
 
-    BaseScreen(
+    BaseScreenWithNavigation(
+        baseScreenState = baseScreenState,
+        drawerState = drawerState,
         topAppBar = {
             RecipeTopAppBar(
                 title = state.title ?: "",
+                drawerState = drawerState,
                 onEditClick = {
                     navController.navigate(EditRecipeScreenDestination(state.summaryEntity?.imageId ?: ""))
                 },
@@ -106,11 +115,15 @@ private fun RecipeScreen(
 @Composable
 private fun RecipeTopAppBar(
     title: String,
+    drawerState: androidx.compose.material3.DrawerState,
     onEditClick: () -> Unit,
     onAddToShoppingListClick: () -> Unit,
 ) {
     TopAppBar(
         title = { Text(text = title) },
+        navigationIcon = {
+            OpenDrawerIconButton(drawerState = drawerState)
+        },
         actions = {
             IconButton(onClick = onAddToShoppingListClick) {
                 Icon(

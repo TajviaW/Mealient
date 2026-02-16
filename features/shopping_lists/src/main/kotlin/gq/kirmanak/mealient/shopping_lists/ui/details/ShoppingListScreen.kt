@@ -64,7 +64,8 @@ import gq.kirmanak.mealient.shopping_lists.ui.composables.getErrorMessage
 import gq.kirmanak.mealient.shopping_lists.util.ItemLabelGroup
 import gq.kirmanak.mealient.ui.AppTheme
 import gq.kirmanak.mealient.ui.Dimens
-import gq.kirmanak.mealient.ui.components.BaseScreen
+import gq.kirmanak.mealient.ui.components.BaseScreenState
+import gq.kirmanak.mealient.ui.components.BaseScreenWithNavigation
 import gq.kirmanak.mealient.ui.components.LazyColumnWithLoadingState
 import gq.kirmanak.mealient.ui.preview.ColorSchemePreview
 import gq.kirmanak.mealient.ui.util.LoadingState
@@ -82,11 +83,14 @@ data class ShoppingListNavArgs(
 )
 @Composable
 internal fun ShoppingListScreen(
+    baseScreenState: BaseScreenState,
     shoppingListViewModel: ShoppingListViewModel = hiltViewModel(),
 ) {
     val loadingState by shoppingListViewModel.loadingState.collectAsState()
 
-    BaseScreen { modifier ->
+    BaseScreenWithNavigation(
+        baseScreenState = baseScreenState
+    ) { modifier ->
         ShoppingListScreen(
             modifier = modifier,
             loadingState = loadingState,
