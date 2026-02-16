@@ -18,4 +18,6 @@ data class MealPlansState(
     val editingMealPlanId: Int? = null,
     val availableRecipes: List<GetRecipeSummaryResponse> = emptyList(),
     val isLoadingRecipes: Boolean = false,
+    val showMealPlanOptionsDialog: Boolean = false,
+    val selectedMealPlanForOptions: GetMealPlanResponse? = null,
 )

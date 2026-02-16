@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import gq.kirmanak.mealient.datasource.MealieDataSource
+import gq.kirmanak.mealient.datasource.models.GetMealPlanResponse
 import gq.kirmanak.mealient.datasource.models.GetRecipeSummaryResponse
 import gq.kirmanak.mealient.logging.Logger
 import gq.kirmanak.mealient.meal_plans.repo.MealPlansRepo
@@ -84,6 +85,33 @@ class MealPlansViewModel @Inject constructor(
             editingMealPlanId = null
         )
         loadRecipes()
+    }
+
+    fun onMealPlanClick(mealPlan: GetMealPlanResponse) {
+        _state.value = _state.value.copy(
+            showMealPlanOptionsDialog = true,
+            selectedMealPlanForOptions = mealPlan
+        )
+    }
+
+    fun onDismissOptionsDialog() {
+        _state.value = _state.value.copy(
+            showMealPlanOptionsDialog = false,
+            selectedMealPlanForOptions = null
+        )
+    }
+
+    fun onEditFromOptions() {
+        val mealPlan = _state.value.selectedMealPlanForOptions
+        if (mealPlan != null) {
+            _state.value = _state.value.copy(
+                showMealPlanDialog = true,
+                editingMealPlanId = mealPlan.id,
+                showMealPlanOptionsDialog = false,
+                selectedMealPlanForOptions = null
+            )
+            loadRecipes()
+        }
     }
 
     fun onEditMealPlanClick(id: Int) {

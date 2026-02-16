@@ -68,4 +68,9 @@
     <string name="meal_plans_content_desc_calendar_icon">Calendar</string>
     <string name="meal_plans_content_desc_previous_week">Previous week</string>
     <string name="meal_plans_content_desc_next_week">Next week</string>
+
+    <!-- Options dialog -->
+    <string name="meal_plans_options_title">Meal Plan Options</string>
+    <string name="meal_plans_option_edit">Edit Meal Plan</string>
+    <string name="meal_plans_option_view_recipe">View Recipe</string>
 </resources>

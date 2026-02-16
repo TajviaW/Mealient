@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.navigate
 import gq.kirmanak.mealient.datasource.models.GetMealPlanResponse
 import gq.kirmanak.mealient.meal_plans.R
 import gq.kirmanak.mealient.ui.components.BaseScreenState
@@ -89,7 +90,7 @@ fun MealPlansScreen(
                         endDate = state.endDate,
                         isRefreshing = state.isRefreshing,
                         onRefresh = viewModel::onRefresh,
-                        onMealPlanClick = viewModel::onEditMealPlanClick,
+                        onMealPlanClick = viewModel::onMealPlanClick,
                         onDeleteMealPlan = viewModel::onDeleteMealPlan
                     )
                 }
@@ -107,6 +108,21 @@ fun MealPlansScreen(
                     contentDescription = stringResource(R.string.meal_plans_add_meal_plan)
                 )
             }
+        }
+
+        val selectedMealPlan = state.selectedMealPlanForOptions
+        if (state.showMealPlanOptionsDialog && selectedMealPlan != null) {
+            MealPlanOptionsDialog(
+                mealPlan = selectedMealPlan,
+                onDismiss = viewModel::onDismissOptionsDialog,
+                onEdit = viewModel::onEditFromOptions,
+                onViewRecipe = {
+                    selectedMealPlan.recipe?.slug?.let { slug ->
+                        navController.navigate("recipe_screen/$slug")
+                    }
+                    viewModel.onDismissOptionsDialog()
+                }
+            )
         }
 
         if (state.showMealPlanDialog) {
@@ -135,7 +151,7 @@ private fun MealPlansContent(
     endDate: String,
     isRefreshing: Boolean,
     onRefresh: () -> Unit,
-    onMealPlanClick: (Int) -> Unit,
+    onMealPlanClick: (GetMealPlanResponse) -> Unit,
     onDeleteMealPlan: (String) -> Unit,
 ) {
     PullToRefreshBox(
@@ -196,7 +212,7 @@ private fun MealPlansContent(
                     items(mealPlans) { mealPlan ->
                         MealPlanCard(
                             mealPlan = mealPlan,
-                            onClick = { onMealPlanClick(mealPlan.id) },
+                            onClick = { onMealPlanClick(mealPlan) },
                             onDelete = { onDeleteMealPlan(mealPlan.id.toString()) }
                         )
                     }
@@ -445,6 +461,71 @@ private fun MealPlanDialog(
                 )
             }
         },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(R.string.meal_plans_dialog_button_cancel))
+            }
+        }
+    )
+}
+
+@Composable
+private fun MealPlanOptionsDialog(
+    mealPlan: GetMealPlanResponse,
+    onDismiss: () -> Unit,
+    onEdit: () -> Unit,
+    onViewRecipe: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Text(text = stringResource(R.string.meal_plans_options_title))
+        },
+        text = {
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                TextButton(
+                    onClick = {
+                        onEdit()
+                        onDismiss()
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Start
+                    ) {
+                        Text(
+                            text = stringResource(R.string.meal_plans_option_edit),
+                            style = MaterialTheme.typography.bodyLarge
+                        )
+                    }
+                }
+
+                if (mealPlan.recipe != null) {
+                    TextButton(
+                        onClick = {
+                            onViewRecipe()
+                            onDismiss()
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.Start
+                        ) {
+                            Text(
+                                text = stringResource(R.string.meal_plans_option_view_recipe),
+                                style = MaterialTheme.typography.bodyLarge
+                            )
+                        }
+                    }
+                }
+            }
+        },
+        confirmButton = {},
         dismissButton = {
             TextButton(onClick = onDismiss) {
                 Text(stringResource(R.string.meal_plans_dialog_button_cancel))
