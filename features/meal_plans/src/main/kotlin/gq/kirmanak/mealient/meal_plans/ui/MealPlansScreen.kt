@@ -118,7 +118,11 @@ fun MealPlansScreen(
                 onEdit = viewModel::onEditFromOptions,
                 onViewRecipe = {
                     selectedMealPlan.recipeId?.let { recipeId ->
-                        navController.navigate("recipe_screen/$recipeId")
+                        // Navigate using the full route with nav graph prefix
+                        navController.navigate("recipe_screen/$recipeId") {
+                            // Ensure we can navigate to the recipes nav graph from meal_plans
+                            launchSingleTop = true
+                        }
                     }
                     viewModel.onDismissOptionsDialog()
                 }
