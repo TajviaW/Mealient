@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "gq.kirmanak.mealient.meal_plans-mergeReleaseResources-65:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/home/tajviaw/.gradle/caches/8.10.2/transforms/e242d41a8471bd6dd6e4ad32d5db8d31/transformed/appcompat-1.6.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "gq.kirmanak.mealient.meal_plans-release-67:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/home/tajviaw/.gradle/caches/8.10.2/transforms/e242d41a8471bd6dd6e4ad32d5db8d31/transformed/appcompat-1.6.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}

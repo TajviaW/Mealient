@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "gq.kirmanak.mealient.meal_plans-release-67:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "map": [
+                {
+                    "source": "/home/tajviaw/.gradle/caches/8.10.2/transforms/4ef024df0648840713f8f08e4a6e902f/transformed/material-1.12.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "54",
+                        "endOffsets": "105"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "gq.kirmanak.mealient.meal_plans-mergeReleaseResources-65:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "map": [
+                {
+                    "source": "/home/tajviaw/.gradle/caches/8.10.2/transforms/4ef024df0648840713f8f08e4a6e902f/transformed/material-1.12.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "54",
+                        "endOffsets": "105"
+                    }
+                }
+            ]
+        }
+    ]
+}

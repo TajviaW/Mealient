@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/animator-v21/m3_appbar_state_list_animator.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-material-1.12.0-25:/animator-v21/m3_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/animator-v21/design_appbar_state_list_animator.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-material-1.12.0-25:/animator-v21/design_appbar_state_list_animator.xml"
+    }
+]

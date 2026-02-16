@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "gq.kirmanak.mealient.meal_plans-mergeReleaseResources-65:/values-v30/values-v30.xml",
+            "map": [
+                {
+                    "source": "/home/tajviaw/.gradle/caches/8.10.2/transforms/cca12f791b18e392c6e763173cb787bf/transformed/material3/res/values-v30/values-v30.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "72",
+                        "endOffsets": "123"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "gq.kirmanak.mealient.meal_plans-release-67:/values-v30/values-v30.xml",
+            "map": [
+                {
+                    "source": "/home/tajviaw/.gradle/caches/8.10.2/transforms/cca12f791b18e392c6e763173cb787bf/transformed/material3/res/values-v30/values-v30.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "72",
+                        "endOffsets": "123"
+                    }
+                }
+            ]
+        }
+    ]
+}

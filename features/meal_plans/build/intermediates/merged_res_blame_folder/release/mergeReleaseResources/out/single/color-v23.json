@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/color-v23/abc_tint_edittext.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-appcompat-1.6.1-54:/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/color-v23/abc_btn_colored_text_material.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-appcompat-1.6.1-54:/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/color-v23/abc_color_highlight_material.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-appcompat-1.6.1-54:/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-appcompat-1.6.1-54:/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/color-v23/abc_tint_switch_track.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-appcompat-1.6.1-54:/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/color-v23/abc_tint_btn_checkable.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-appcompat-1.6.1-54:/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/color-v23/abc_tint_spinner.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-appcompat-1.6.1-54:/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/color-v23/abc_tint_seek_thumb.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-appcompat-1.6.1-54:/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/color-v23/abc_tint_default.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-appcompat-1.6.1-54:/color-v23/abc_tint_default.xml"
+    }
+]

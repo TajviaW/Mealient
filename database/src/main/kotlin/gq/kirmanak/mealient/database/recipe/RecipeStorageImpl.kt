@@ -70,6 +70,13 @@ internal class RecipeStorageImpl @Inject constructor(
         return fullRecipeInfo
     }
 
+    override suspend fun queryRecipeInfoBySlug(slug: String): RecipeWithSummaryAndIngredientsAndInstructions? {
+        logger.v { "queryRecipeInfoBySlug() called with: slug = $slug" }
+        val fullRecipeInfo = recipeDao.queryFullRecipeInfoBySlug(slug)
+        logger.v { "queryRecipeInfoBySlug() returned: $fullRecipeInfo" }
+        return fullRecipeInfo
+    }
+
     override suspend fun updateFavoriteRecipes(favorites: List<String>) {
         logger.v { "updateFavoriteRecipes() called with: favorites = $favorites" }
         db.withTransaction {

@@ -76,6 +76,13 @@ class RecipeRepoImpl @Inject constructor(
         return recipeInfo
     }
 
+    override suspend fun loadRecipeInfoBySlug(slug: String): RecipeWithSummaryAndIngredientsAndInstructions? {
+        logger.v { "loadRecipeInfoBySlug() called with: slug = $slug" }
+        val recipeInfo = storage.queryRecipeInfoBySlug(slug)
+        logger.v { "loadRecipeInfoBySlug() returned: $recipeInfo" }
+        return recipeInfo
+    }
+
     override fun updateNameQuery(name: String?) {
         logger.v { "updateNameQuery() called with: name = $name" }
         pagingSourceFactory.setQuery(name)

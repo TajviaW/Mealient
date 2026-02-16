@@ -14,6 +14,8 @@ interface RecipeRepo {
 
     suspend fun loadRecipeInfo(recipeId: String): RecipeWithSummaryAndIngredientsAndInstructions?
 
+    suspend fun loadRecipeInfoBySlug(slug: String): RecipeWithSummaryAndIngredientsAndInstructions?
+
     fun updateNameQuery(name: String?)
 
     suspend fun refreshRecipes()

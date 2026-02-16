@@ -43,8 +43,29 @@ internal class RecipeInfoViewModel @Inject constructor(
     private fun loadRecipeInfo() {
         viewModelScope.launch {
             logger.v { "Initializing UI state with args = $args" }
-            val recipeInfo = recipeRepo.loadRecipeInfo(args.recipeId)
-            logger.v { "Loaded recipe info = $recipeInfo" }
+            // Try loading by ID first (for UUID-based navigation)
+            var recipeInfo = recipeRepo.loadRecipeInfo(args.recipeId)
+            logger.v { "Loaded recipe info by ID = $recipeInfo" }
+
+            // If not found, try by slug (for slug-based navigation like from meal plans)
+            if (recipeInfo == null) {
+                logger.v { "Recipe not found by ID, trying by slug: ${args.recipeId}" }
+                recipeInfo = recipeRepo.loadRecipeInfoBySlug(args.recipeId)
+                logger.v { "Loaded recipe info by slug = $recipeInfo" }
+            }
+
+            // If still not found, fetch from server
+            if (recipeInfo == null) {
+                logger.v { "Recipe not found locally, fetching from server with slug: ${args.recipeId}" }
+                val refreshResult = recipeRepo.refreshRecipeInfo(args.recipeId)
+                if (refreshResult.isSuccess) {
+                    recipeInfo = recipeRepo.loadRecipeInfoBySlug(args.recipeId)
+                    logger.v { "After refresh, recipe info = $recipeInfo" }
+                } else {
+                    logger.e { "Failed to refresh recipe: ${refreshResult.exceptionOrNull()}" }
+                }
+            }
+
             val slug = recipeInfo?.recipeSummaryEntity?.imageId
             val imageUrl = slug?.let { recipeImageUrlProvider.generateImageUrl(slug) }
             val serverUrl = serverInfoRepo.getUrl()

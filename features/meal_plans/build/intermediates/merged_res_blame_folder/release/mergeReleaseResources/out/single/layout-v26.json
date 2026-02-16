@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/layout-v26/mtrl_calendar_month.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-material-1.12.0-25:/layout-v26/mtrl_calendar_month.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/layout-v26/abc_screen_toolbar.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-appcompat-1.6.1-54:/layout-v26/abc_screen_toolbar.xml"
+    }
+]

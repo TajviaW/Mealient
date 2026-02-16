@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/layout-sw600dp-v13/mtrl_layout_snackbar.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-material-1.12.0-25:/layout-sw600dp-v13/mtrl_layout_snackbar.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/layout-sw600dp-v13/design_layout_snackbar.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-material-1.12.0-25:/layout-sw600dp-v13/design_layout_snackbar.xml"
+    }
+]

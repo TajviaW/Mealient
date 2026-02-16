@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/layout-v21/notification_template_custom_big.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-core-1.15.0-22:/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/layout-v21/notification_action.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-core-1.15.0-22:/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/layout-v21/notification_action_tombstone.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-core-1.15.0-22:/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/layout-v21/notification_template_icon_group.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-core-1.15.0-22:/layout-v21/notification_template_icon_group.xml"
+    }
+]

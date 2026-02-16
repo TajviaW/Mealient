@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/color-night-v8/material_timepicker_button_stroke.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-material-1.12.0-25:/color-night-v8/material_timepicker_button_stroke.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/color-night-v8/material_timepicker_modebutton_tint.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-material-1.12.0-25:/color-night-v8/material_timepicker_modebutton_tint.xml"
+    },
+    {
+        "merged": "gq.kirmanak.mealient.meal_plans-release-67:/color-night-v8/material_timepicker_clockface.xml",
+        "source": "gq.kirmanak.mealient.meal_plans-material-1.12.0-25:/color-night-v8/material_timepicker_clockface.xml"
+    }
+]
