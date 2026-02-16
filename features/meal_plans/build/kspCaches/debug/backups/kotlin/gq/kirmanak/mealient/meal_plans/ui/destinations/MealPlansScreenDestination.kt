@@ -35,7 +35,8 @@ public object MealPlansScreenDestination : DirectionDestination {
 		val dependencyContainer = buildDependencies()
 		MealPlansScreen(
 			navController = navController, 
-			baseScreenState = dependencyContainer.require()
+			baseScreenState = dependencyContainer.require(), 
+			onNavigateToRecipe = dependencyContainer.require()
 		)
     }
     

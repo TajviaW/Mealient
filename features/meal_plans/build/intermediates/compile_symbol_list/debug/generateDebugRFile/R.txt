@@ -4222,6 +4222,9 @@ int string meal_plans_field_title 0x0
 int string meal_plans_hint_notes 0x0
 int string meal_plans_hint_select_recipe 0x0
 int string meal_plans_hint_title 0x0
+int string meal_plans_option_edit 0x0
+int string meal_plans_option_view_recipe 0x0
+int string meal_plans_options_title 0x0
 int string meal_plans_screen_empty 0x0
 int string meal_plans_screen_empty_subtitle 0x0
 int string meal_plans_screen_title 0x0

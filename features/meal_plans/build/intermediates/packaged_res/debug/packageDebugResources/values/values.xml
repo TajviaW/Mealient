@@ -34,6 +34,9 @@
     <string name="meal_plans_hint_notes">Optional notes</string>
     <string name="meal_plans_hint_select_recipe">Search and select a recipe</string>
     <string name="meal_plans_hint_title">Optional custom title</string>
+    <string name="meal_plans_option_edit">Edit Meal Plan</string>
+    <string name="meal_plans_option_view_recipe">View Recipe</string>
+    <string name="meal_plans_options_title">Meal Plan Options</string>
     <string name="meal_plans_screen_empty">No meal plans for this week</string>
     <string name="meal_plans_screen_empty_subtitle">Tap the + button to create your first meal plan</string>
     <string name="meal_plans_screen_title">Meal Plans</string>

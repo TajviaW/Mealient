@@ -34,6 +34,9 @@ string meal_plans_field_title
 string meal_plans_hint_notes
 string meal_plans_hint_select_recipe
 string meal_plans_hint_title
+string meal_plans_option_edit
+string meal_plans_option_view_recipe
+string meal_plans_options_title
 string meal_plans_screen_empty
 string meal_plans_screen_empty_subtitle
 string meal_plans_screen_title

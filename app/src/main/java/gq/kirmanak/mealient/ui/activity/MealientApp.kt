@@ -21,8 +21,10 @@ import com.ramcosta.composedestinations.spec.DestinationSpec
 import com.ramcosta.composedestinations.spec.NavHostEngine
 import com.ramcosta.composedestinations.spec.Route
 import com.ramcosta.composedestinations.utils.currentDestinationAsState
+import gq.kirmanak.mealient.meal_plans.ui.destinations.MealPlansScreenDestination
 import gq.kirmanak.mealient.ui.NavGraphs
 import gq.kirmanak.mealient.ui.components.rememberBaseScreenState
+import gq.kirmanak.mealient.ui.destinations.RecipeScreenDestination
 
 @Composable
 internal fun MealientApp(
@@ -172,6 +174,12 @@ private fun AppContent(
         startRoute = startRoute ?: NavGraphs.root.startRoute,
         dependenciesContainerBuilder = {
             dependency(baseScreenState)
+            dependency(MealPlansScreenDestination) {
+                val onNavigateToRecipe: (String) -> Unit = { recipeId ->
+                    controller.navigate(RecipeScreenDestination(recipeId))
+                }
+                onNavigateToRecipe
+            }
         }
     )
 }

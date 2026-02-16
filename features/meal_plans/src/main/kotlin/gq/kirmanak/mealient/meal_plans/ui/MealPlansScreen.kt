@@ -53,6 +53,7 @@ import gq.kirmanak.mealient.ui.components.BaseScreenWithNavigation
 fun MealPlansScreen(
     navController: NavController,
     baseScreenState: BaseScreenState,
+    onNavigateToRecipe: (String) -> Unit,
     viewModel: MealPlansViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsState()
@@ -117,12 +118,8 @@ fun MealPlansScreen(
                 onDismiss = viewModel::onDismissOptionsDialog,
                 onEdit = viewModel::onEditFromOptions,
                 onViewRecipe = {
-                    selectedMealPlan.recipe?.remoteId?.let { recipeId ->
-                        // Navigate using the full route with nav graph prefix
-                        navController.navigate("recipe_screen/$recipeId") {
-                            // Ensure we can navigate to the recipes nav graph from meal_plans
-                            launchSingleTop = true
-                        }
+                    selectedMealPlan.recipe?.slug?.let { recipeSlug ->
+                        onNavigateToRecipe(recipeSlug)
                     }
                     viewModel.onDismissOptionsDialog()
                 }
