@@ -290,4 +290,71 @@ internal class ShoppingListViewModel @Inject constructor(
             }
         }
     }
+
+    fun onSelectAllItems() {
+        logger.v { "onSelectAllItems() called" }
+        val shoppingListScreenState = loadingState.value.data ?: return
+        viewModelScope.launch {
+            shoppingListScreenState.items.forEach { itemState ->
+                if (itemState is ShoppingListItemState.ExistingItem && !itemState.item.checked) {
+                    val updatedItem = itemState.item.copy(checked = true)
+                    editingStateFlow.update { state ->
+                        state.copy(modifiedItems = state.modifiedItems + (updatedItem.id to updatedItem))
+                    }
+                    runCatchingExceptCancel {
+                        shoppingListsRepo.updateShoppingListItem(updatedItem)
+                    }.onFailure {
+                        logger.e(it) { "Failed to check item" }
+                    }
+                }
+            }
+            doRefresh()
+        }
+    }
+
+    fun onUnselectAllItems() {
+        logger.v { "onUnselectAllItems() called" }
+        val shoppingListScreenState = loadingState.value.data ?: return
+        viewModelScope.launch {
+            shoppingListScreenState.items.forEach { itemState ->
+                if (itemState is ShoppingListItemState.ExistingItem && itemState.item.checked) {
+                    val updatedItem = itemState.item.copy(checked = false)
+                    editingStateFlow.update { state ->
+                        state.copy(modifiedItems = state.modifiedItems + (updatedItem.id to updatedItem))
+                    }
+                    runCatchingExceptCancel {
+                        shoppingListsRepo.updateShoppingListItem(updatedItem)
+                    }.onFailure {
+                        logger.e(it) { "Failed to uncheck item" }
+                    }
+                }
+            }
+            doRefresh()
+        }
+    }
+
+    fun onDeleteCheckedItems() {
+        logger.v { "onDeleteCheckedItems() called" }
+        val shoppingListScreenState = loadingState.value.data ?: return
+        viewModelScope.launch {
+            val checkedItems = shoppingListScreenState.items.filterIsInstance<ShoppingListItemState.ExistingItem>()
+                .filter { it.item.checked }
+
+            checkedItems.forEach { itemState ->
+                editingStateFlow.update { state ->
+                    state.copy(deletedItemIds = state.deletedItemIds + itemState.item.id)
+                }
+                runCatchingExceptCancel {
+                    shoppingListsRepo.deleteShoppingListItem(itemState.item.id)
+                }.onFailure {
+                    logger.e(it) { "Failed to delete checked item" }
+                }
+            }
+            doRefresh()
+            editingStateFlow.update { state ->
+                val idsToRemove = checkedItems.map { it.item.id }.toSet()
+                state.copy(deletedItemIds = state.deletedItemIds - idsToRemove)
+            }
+        }
+    }
 }

@@ -6,13 +6,17 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
@@ -97,6 +101,9 @@ internal fun ShoppingListScreen(
             onEditStart = shoppingListViewModel::onEditStart,
             onAddCancel = shoppingListViewModel::onAddCancel,
             onAddConfirm = shoppingListViewModel::onAddConfirm,
+            onSelectAllItems = shoppingListViewModel::onSelectAllItems,
+            onUnselectAllItems = shoppingListViewModel::onUnselectAllItems,
+            onDeleteCheckedItems = shoppingListViewModel::onDeleteCheckedItems,
         )
     }
 }
@@ -115,6 +122,9 @@ private fun ShoppingListScreen(
     onEditStart: (ShoppingListItemState.ExistingItem) -> Unit,
     onAddCancel: (ShoppingListItemState.NewItem) -> Unit,
     onAddConfirm: (ShoppingListItemState.NewItem) -> Unit,
+    onSelectAllItems: () -> Unit,
+    onUnselectAllItems: () -> Unit,
+    onDeleteCheckedItems: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val defaultEmptyListError = stringResource(
@@ -164,6 +174,16 @@ private fun ShoppingListScreen(
 
         lastAddedItemIndex = sortedItems.indexOfLast { it is ShoppingListItemState.NewItem }
         val firstCheckedItemIndex = sortedItems.indexOfFirst { it.checked }
+        val hasCheckedItems = sortedItems.any { it.checked }
+
+        item {
+            ShoppingListActionsRow(
+                onSelectAllItems = onSelectAllItems,
+                onUnselectAllItems = onUnselectAllItems,
+                onDeleteCheckedItems = onDeleteCheckedItems,
+                hasCheckedItems = hasCheckedItems,
+            )
+        }
 
         itemsIndexed(sortedItems, { _, item -> item.id}) { index, itemState ->
             when (itemState) {
@@ -208,6 +228,63 @@ private fun ShoppingListScreen(
                     )
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun ShoppingListActionsRow(
+    onSelectAllItems: () -> Unit,
+    onUnselectAllItems: () -> Unit,
+    onDeleteCheckedItems: () -> Unit,
+    hasCheckedItems: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(vertical = Dimens.Small),
+        horizontalArrangement = Arrangement.SpaceEvenly,
+    ) {
+        Button(
+            onClick = onSelectAllItems,
+            modifier = Modifier.weight(1f),
+            colors = ButtonDefaults.buttonColors(),
+        ) {
+            Text(
+                text = stringResource(R.string.shopping_list_screen_select_all),
+                style = MaterialTheme.typography.labelMedium,
+            )
+        }
+
+        Spacer(modifier = Modifier.width(Dimens.Small))
+
+        Button(
+            onClick = onUnselectAllItems,
+            modifier = Modifier.weight(1f),
+            colors = ButtonDefaults.buttonColors(),
+        ) {
+            Text(
+                text = stringResource(R.string.shopping_list_screen_unselect_all),
+                style = MaterialTheme.typography.labelMedium,
+            )
+        }
+
+        Spacer(modifier = Modifier.width(Dimens.Small))
+
+        Button(
+            onClick = onDeleteCheckedItems,
+            modifier = Modifier.weight(1f),
+            enabled = hasCheckedItems,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.error,
+                contentColor = MaterialTheme.colorScheme.onError,
+            ),
+        ) {
+            Text(
+                text = stringResource(R.string.shopping_list_screen_delete_checked),
+                style = MaterialTheme.typography.labelMedium,
+            )
         }
     }
 }
