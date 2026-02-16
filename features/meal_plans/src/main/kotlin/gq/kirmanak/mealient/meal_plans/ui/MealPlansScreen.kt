@@ -117,7 +117,7 @@ fun MealPlansScreen(
                 onDismiss = viewModel::onDismissOptionsDialog,
                 onEdit = viewModel::onEditFromOptions,
                 onViewRecipe = {
-                    selectedMealPlan.recipeId?.let { recipeId ->
+                    selectedMealPlan.recipe?.remoteId?.let { recipeId ->
                         // Navigate using the full route with nav graph prefix
                         navController.navigate("recipe_screen/$recipeId") {
                             // Ensure we can navigate to the recipes nav graph from meal_plans
